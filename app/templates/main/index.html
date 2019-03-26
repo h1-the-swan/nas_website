@@ -1,1 +1,125 @@
 {% extends "base.html" %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<a class="navbar-brand" href="#">Navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Disabled</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<div class="dropdown-menu" aria-labelledby="dropdown01">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+</nav>
+
+<main role="main" class="container">
+
+<div>
+	<h1>Mapping Science Communication and Misinformation</h1>
+<p class="intro-text lead">
+	Over the last decade, the world has seen a rise in misinformation. The World Economic Forum identified this rise as an existential threat to society, on par with terrorism, cyberwarfare, and global governance failure. Most of the attention has centered on misinformation about politics, government propaganda and festering conspiracy theories. Relatively less attention has been given to misinformation in, and about, science, where misappropriated nutritional advice spreads virally in the news and on social media, measles outbreaks due to lowering vaccination rates are creating states of emergencies the U.S., predatory journals are fooling both the public and researchers themselves, and videos promoting the flat earth theory are commonly recommended on YouTube. The goal of this interactive report is to find out who is working on this topic of science misinformation and how this emerging, interdisciplinary domain connects across the disciplinary landscape. The research draws heavily from science communication research, as one would expect, but the researchers come from pyschology, education, science and technology studies, journalism, computer science, etc. Using bibliographic maps, we examine the state of the field through interactive visualizations, co-authorship graphs and keyword analysis that we plan to update as new data and papers are published.
+</p>	
+<a href="{{ url_for('static', filename='nasreport/map1.png') }}" target="_blank"><img src="{{ url_for('static', filename='nasreport/map1.png') }}" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a>
+</div>
+
+<div class="section projects">
+	<div class="container">
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					<a href="#">Coauthorship Visualization</a>
+				</h5>
+				<p class="project description">
+					Shows the coauthorship network of the science communication and misinformation seed papers, highlighting the connections between important authors in the fields. 
+				</p>
+			</div>
+		</div>
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					<a href="#">Citation Influence Visualization</a>
+				</h5>
+				<p class="project description">
+					Shows important papers that have cited the science communication and misinformation seed papers, reflecting the influence these fields have had over time. 
+				</p>
+			</div>
+		</div>
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					<a href="#">Cluster Comparison Network</a>
+				</h5>
+				<p class="project description">
+					Shows how the two sets of seed papers (science communication and misinformation) relate to the overall paper citation network, by visualizing representative clusters in each set, as well as their overlap and interaction. 
+				</p>
+			</div>
+		</div>
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					<a href="{{ url_for('static', filename='nasreport/predictions_sciencecomm_and_misinfo_20190308.xlsx') }}">Extended Bibliography</a>
+				</h5>
+				<p class="project description">
+					The extended bibliography is generated automatically based on the seed papers used for this analysis. Please see “Data and Methods” for more details.
+				</p>
+			</div>
+		</div>
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					Keyword Mapping
+				</h5>
+				<p class="project description">
+					The map below shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.
+				</p>
+				<a href="{{ url_for('static', filename='nasreport/5_word_minimum.png') }}" target="_blank"><img src="{{ url_for('static', filename='nasreport/5_word_minimum.png') }}" alt="Keyword Mapping Visualization"/></a>
+			</div>
+		</div>
+
+		<div class="row project">
+			<div class="project link">
+				<h5>
+					Data and Methods
+				</h5>
+				<p class="project description">
+					Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then apply automated methods for finding related papers through citation links and word similarity. To begin our analysis, we used two bibliographies. The first set we call “Collection 1” (C1). This set consisted of papers in an Endnote library assembled by the National Academy. Details on how this Endnote library was constructed is provided in further documentation. The second set we call “Collection 2" (C2). This collection of papers comes from the National Academy report on “Communicating Science Effectively: A Research Agenda.” This report was published in 2017 and included many of the top scholars in the field of science communication. C1 focused more on misinformation research. C2 focused more generally on science communication. In parts of the analysis, we separate C1 and C2. We do this when separating the misinformation literature from the science communication literature. For most of the analysis, though, we combine C1 and C2. We call this combined set C3. For this report, we have extracted the titles from the Endnote library and from the National Academy report. We matched these titles to records in the Web of Science (WoS) and added additional metadata to records missing information. For many of these records, we had to fill in data by hand. Some tasks can be automated. The final seed set for C3 included 1,075 papers. There 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There 63 papers that existed in both C1 and C2.
+				</p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+	<p>
+		This online, interactive report was created by Jevin West, Jason Portenoy and the National Academy of Sciences. The interactive maps allow users to explore the emerging fields of science communication and misinformation research.
+	</p>
+</main><!-- /.container -->
+
+{% endblock content %}

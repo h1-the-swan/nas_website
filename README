@@ -1,0 +1,12 @@
+Create a virtual environment:
+`virtualenv venv`
+Activate the virtual environment:
+`source venv/bin/activate`
+Install python dependencies:
+`pip install -r requirements.txt`
+Install node dependencies
+`npm install`
+Webpack watch for changes:
+`./node_modules/.bin/webpack --watch --progress`
+Run server (separate terminal, virtualenv activated):
+`flask run`

@@ -1,1 +1,10 @@
+@import "custom";
 @import "~bootstrap/scss/bootstrap";
+
+body {
+	padding-top: 5rem;
+}
+
+.intro-text {
+	text-align: justify;
+}
