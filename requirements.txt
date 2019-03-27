@@ -1,10 +1,10 @@
 Click==7.0
 Flask==1.0.2
+Frozen-Flask==0.15
 itsdangerous==1.1.0
 Jinja2==2.10
 MarkupSafe==1.1.1
 python-dotenv==0.10.1
 six==1.12.0
-# Editable Git install with no remote (website==0.1.0)
--e /home/hasone/code/nas_website
+-e git+git@github.com:h1-the-swan/nas_website.git@f4dd75bf1f32586f6a02f26585ae0310aa45d9ca#egg=website
 Werkzeug==0.15.1
