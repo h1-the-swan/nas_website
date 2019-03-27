@@ -22,7 +22,6 @@ def create_app(config='production'):
     app.config.from_object(config)
 
     from . import main
-    print(main.bp)
     app.register_blueprint(main.bp)
 
     return app

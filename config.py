@@ -9,8 +9,8 @@ class Config(object):
 
     """Configuration object for Flask app"""
 
-    # def __init__(self):
-    #     """TODO: to be defined1. """
+    def __init__(self):
+        pass
 
     APP_NAME = os.environ.get('APP_NAME') or ''
     if os.environ.get('SECRET_KEY'):
@@ -21,18 +21,16 @@ class Config(object):
 
 class DevelopmentConfig(Config):
 
-    # def __init__(self):
-    #     """TODO: to be defined1. """
-    #     Config.__init__(self)
+    def __init__(self):
+        Config.__init__(self)
+        print('THIS APP IS IN DEBUG MODE. YOU SHOULD NOT SEE THIS IN PRODUCTION.')
 
     DEBUG = True
-    print('THIS APP IS IN DEBUG MODE. YOU SHOULD NOT SEE THIS IN PRODUCTION.')
 
 class ProductionConfig(Config):
 
-    # def __init__(self):
-    #     """TODO: to be defined1. """
-    #     Config.__init__(self)
+    def __init__(self):
+        Config.__init__(self)
 
     DEBUG = False
         

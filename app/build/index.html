@@ -1,6 +1,13 @@
-{% extends "base.html" %}
-
-{% block content %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>National Academy of Science Report</title>
+		
+	</head>
+	<body>
+		
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<a class="navbar-brand" href="#">Navbar</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +48,7 @@
 <p class="intro-text lead">
 	Over the last decade, the world has seen a rise in misinformation. The World Economic Forum identified this rise as an existential threat to society, on par with terrorism, cyberwarfare, and global governance failure. Most of the attention has centered on misinformation about politics, government propaganda and festering conspiracy theories. Relatively less attention has been given to misinformation in, and about, science, where misappropriated nutritional advice spreads virally in the news and on social media, measles outbreaks due to lowering vaccination rates are creating states of emergencies the U.S., predatory journals are fooling both the public and researchers themselves, and videos promoting the flat earth theory are commonly recommended on YouTube. The goal of this interactive report is to find out who is working on this topic of science misinformation and how this emerging, interdisciplinary domain connects across the disciplinary landscape. The research draws heavily from science communication research, as one would expect, but the researchers come from pyschology, education, science and technology studies, journalism, computer science, etc. Using bibliographic maps, we examine the state of the field through interactive visualizations, co-authorship graphs and keyword analysis that we plan to update as new data and papers are published.
 </p>	
-<a href="{{ url_for('static', filename='img/map1.png') }}" target="_blank"><img src="{{ url_for('static', filename='img/map1.png') }}" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a>
+<a href="/static/img/map1.png" target="_blank"><img src="/static/img/map1.png" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a>
 </div>
 
 <div class="section projects">
@@ -90,7 +97,7 @@
 			<div class="card-body">
 				<div class="project link">
 					<h5>
-						{# <a href="{{ url_for('static', filename='predictions_sciencecomm_and_misinfo_20190308.xlsx') }}">Extended Bibliography</a> #}
+						
 						<a href="#">Extended Bibliography</a>
 					</h5>
 					<p class="project description">
@@ -109,7 +116,7 @@
 					<p class="project description">
 						The map below shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.
 					</p>
-					<a href="{{ url_for('static', filename='img/5_word_minimum.png') }}" target="_blank"><img src="{{ url_for('static', filename='img/5_word_minimum.png') }}" alt="Keyword Mapping Visualization"/></a>
+					<a href="/static/img/5_word_minimum.png" target="_blank"><img src="/static/img/5_word_minimum.png" alt="Keyword Mapping Visualization"/></a>
 				</div>
 			</div>
 		</div>
@@ -135,4 +142,9 @@
 	</p>
 </main><!-- /.container -->
 
-{% endblock content %}
+
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/bundle.js"></script>
+	</body>
+</html>
