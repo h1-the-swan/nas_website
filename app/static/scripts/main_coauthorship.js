@@ -38,7 +38,7 @@ function labelImportantNodes() {
 				hideOnClick: false,
 				interactive: true,
 				trigger: "manual",
-				appendTo: document.getElementById("chartDiv"),
+				appendTo: document.getElementById("mainVis"),
 				theme: "label-important",
 				showOnInit: true,
 				sticky: true,  // move around with the nodes
