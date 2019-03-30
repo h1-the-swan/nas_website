@@ -1,3 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>{% block page_title %}{{ config.APP_NAME }}{% endblock %}</title>
+<script type="text/javascript" charset="utf-8">
+	// Global variables:
+	var SCRIPT_ROOT = {{ request.script_root|tojson }};
+  var STATIC_FOLDER_ROOT = {{ url_for('static', filename='')|tojson }};
+</script>
