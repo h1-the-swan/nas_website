@@ -4,5 +4,5 @@
 <script type="text/javascript" charset="utf-8">
 	// Global variables:
 	var SCRIPT_ROOT = {{ request.script_root|tojson }};
-  var STATIC_FOLDER_ROOT = {{ url_for('static', filename='')|tojson }};
+  var STATIC_FOLDER_ROOT = {{ config.STATIC_FOLDER|tojson }};
 </script>

@@ -20,6 +20,8 @@ def create_app(config='production'):
 
     app = Flask(__name__)
     app.config.from_object(config)
+    if app.config.get('STATIC_FOLDER') is None:
+        app.config['STATIC_FOLDER'] = app.static_folder
 
     from . import main
     app.register_blueprint(main.bp)
