@@ -7,7 +7,7 @@
 <script type="text/javascript" charset="utf-8">
 	// Global variables:
 	var SCRIPT_ROOT = "";
-  var STATIC_FOLDER_ROOT = "/home/jporteno/code/nas_website/app/static";
+  var STATIC_FOLDER_ROOT = "/static";
 </script>
 		
 	</head>
@@ -56,72 +56,18 @@
 <a href="/static/img/map1.png" target="_blank"><img src="/static/img/map1.png" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a>
 </div>
 
-<div class="section projects">
+<div class="section projects" id="projects">
 	<div class="container">
 
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						<a href="/coauthorship/">Coauthorship Visualization</a>
-					</h5>
-					<p class="project description">
-						Shows the coauthorship network of the science communication and misinformation seed papers, highlighting the connections between important authors in the fields. 
-					</p>
-				</div>
-			</div>
-		</div>
 
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						<a href="#">Citation Influence Visualization</a>
-					</h5>
-					<p class="project description">
-						Shows important papers that have cited the science communication and misinformation seed papers, reflecting the influence these fields have had over time. 
-					</p>
+		<div class="card my-4 row project" id="project-item-template" style="display: none;">
+			<div class="card-body col-md-12">
+				<div class="project-link project-name p-0 float-md-left col-md-9">
 				</div>
-			</div>
-		</div>
-
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						<a href="#">Cluster Comparison Network</a>
-					</h5>
-					<p class="project description">
-						Shows how the two sets of seed papers (science communication and misinformation) relate to the overall paper citation network, by visualizing representative clusters in each set, as well as their overlap and interaction. 
-					</p>
+				<div class="pl-md-5 float-md-right col-md-3 d-flex justify-content-sm-center">
+					<img class="img-thumbnail border-0" src=" /static/img/citationvis_thumb.png" alt=""/>
 				</div>
-			</div>
-		</div>
-
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						
-						<a href="#">Extended Bibliography</a>
-					</h5>
-					<p class="project description">
-						The extended bibliography is generated automatically based on the seed papers used for this analysis. Please see “Data and Methods” for more details.
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						Keyword Mapping
-					</h5>
-					<p class="project description">
-						The map below shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.
-					</p>
-					<a href="/static/img/5_word_minimum.png" target="_blank"><img src="/static/img/5_word_minimum.png" alt="Keyword Mapping Visualization"/></a>
+				<div class="card-text project-description text-justify">
 				</div>
 			</div>
 		</div>
@@ -150,8 +96,9 @@
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/bundle.js"></script>
+		<script type="text/javascript" src="/static/app.bundle.js"></script>
 		
-		
+<script type="text/javascript" src="/static/index.bundle.js"></script>
+
 	</body>
 </html>

@@ -10,3 +10,7 @@ Webpack watch for changes:
 `./node_modules/.bin/webpack --watch --progress`
 Run server (separate terminal, virtualenv activated):
 `flask run`
+Freeze static site:
+`python freeze.py`
+Sync static site to S3:
+`aws s3 sync app/build/ s3://<BUCKET_NAME>/ --acl public-read`
