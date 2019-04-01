@@ -50,22 +50,24 @@
 
 		{% for project in projects %}
 
-		<div class="card my-4 row project" id="project-item-template">
+		<div class="card my-4 row project">
 			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md-9">
-					<a href="{{ url_for(project['url']) }}">
+				<div class="project-link project-name p-0 float-md-left col-md">
+					<a href="{{ project['url'] }}">
 						<h5>{{ project['name'] }}</h5>
 					</a>
 				</div>
+				{% if project.get('img') and project['img'] != 'TODO' %}
 				<div class="pl-md-5 float-md-right col-md-3 d-flex justify-content-sm-center">
 					<img class="img-thumbnail border-0" src="{{ url_for('static', filename='img/'+project['img']) }}" alt="{{ project['img_alt'] }}"/>
 				</div>
+				{% endif %}
 				<div class="card-text project-description text-justify">
 					<p>{{ project['description'] }}</p>
 				</div>
 			</div>
 		</div>
-			
+
 		{% endfor %}
 
 		<div class="card my-4 row project">

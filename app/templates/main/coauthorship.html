@@ -1,6 +1,7 @@
 {% extends "main/vis_view.html" %}
 
 {% block custom_head_tags %}
+{{ super() }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@4.2.1/themes/light-border.css" integrity="sha256-cpXbUNk+V/EXxqmcyU0BJe8eEFURwIYi+CTmJseXFwU=" crossorigin="anonymous">
 <style>
 
@@ -50,6 +51,10 @@
 
 </style>
 {% endblock custom_head_tags %}
+
+{% block title %}
+Coauthorship Network
+{% endblock title %}
 
 {% block mainVisDiv_content %}
 
