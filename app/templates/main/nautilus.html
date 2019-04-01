@@ -1,0 +1,49 @@
+{% extends "main/vis_view.html" %}
+
+{% block custom_head_tags %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/normalize.css') }}" type="text/css" media="screen" charset="utf-8">
+{# <link rel="stylesheet" href="{{ url_for('static', filename='styles/skeleton.css') }}" type="text/css" media="screen" charset="utf-8"> #}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/nautilus_style.css') }}" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tooltipster.css') }}" type="text/css">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tooltipster-sideTip-noir.css') }}" type="text/css">
+
+<style type="text/css" media="screen">
+	.tooltipster-content .title {
+		text-decoration: underline;
+		margin-bottom: 5px;
+	}
+
+	.tooltipster-content .venue {
+		font-style: italic;
+	}
+</style>
+{% endblock custom_head_tags %}
+
+{% block title %}
+Nautilus Diagram
+{% endblock title %}
+
+{% block mainVisDiv_content %}
+<div id="mainDiv">
+	<div id="graphDiv"></div>
+	<div id="chartsDiv"></div>
+</div>
+{% endblock mainVisDiv_content %}
+
+{% block endbody_tags %}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@3.5.17/d3.min.js" integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.6/dist/js/tooltipster.bundle.min.js" integrity="sha256-glChvCaC6IJq49dkfulAWd7xlkPwA0FEydjhjPBintA=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8">
+	var $SCRIPT_ROOT = "";
+	var focus_id = "";
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/nautilus_vis.js') }}"></script>
+<script type="text/javascript" charset="utf-8">
+	var citationvis_data = "{{ data_fname }}";
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/main_nautilus.js') }}"></script>
+{% endblock endbody_tags %}
+

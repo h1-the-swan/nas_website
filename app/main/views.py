@@ -19,6 +19,8 @@ def vis(vis_type):
     template = 'main/' + vis_type + '.html'
     if vis_type == 'coauthorship':
         fname = url_for('static', filename="data/coauthorship/test_coauthorship_graph_combined_max600.json")
+    elif vis_type == 'nautilus':
+        fname = url_for('static', filename="data/nautilus/nas2_mag_doi_join_network_fulldata_with_fos_names.json")
     else:
         # TODO
         fname = ""
