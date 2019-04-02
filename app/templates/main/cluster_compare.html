@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>National Academy of Science Report</title>
-<script type="text/javascript" charset="utf-8">
-	// Global variables:
-	var SCRIPT_ROOT = "";
-  var STATIC_FOLDER_ROOT = "/static";
-</script>
-		
+{% extends "main/vis_view.html" %}
 
-<link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
-
-<link rel="stylesheet" href="/static/styles/tooltipster.css" type="text/css">
-<link rel="stylesheet" href="/static/styles/tooltipster-sideTip-noir.css" type="text/css">
+{% block custom_head_tags %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tooltipster.css') }}" type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/tooltipster-sideTip-noir.css') }}" type="text/css">
 
 <style type="text/css" media="screen">
 	.links line {
@@ -52,94 +41,13 @@
 	}
 
 </style>
+{% endblock custom_head_tags %}
 
-	</head>
-	<body>
-			
-
-
-
-
-
-
-
-
-
-
-<div class="container-fluid">
-<div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	<div class="sidebar-sticky">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<a class="nav-link" href="/">
-					<span data-feather="home"></span>
-					Home
-				</a>
-			</li>
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="vis/coauthorship">
-					Coauthorship Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="vis/nautilus">
-					Nautilus Diagram -- Citation Influence Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="vis/cluster_compare">
-					Cluster Comparison Network <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="extended_bib">
-					Extended Bibliography
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="keyword_mapping">
-					Keyword Mapping
-				</a>
-			</li>
-				
-			
-			
-	</div>
-</nav>
-
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">
+{% block title %}
 Cluster Comparison Network
-</h1>
-	</div>
+{% endblock title %}
 
-	<div id="mainVis">
-		
+{% block mainVisDiv_content %}
 <div>
 	<input type="text" size="50" placeholder="Search" name="textSearch" id="textSearch"/>
 </div>
@@ -186,21 +94,13 @@ Cluster Comparison Network
 		</ul>
 	</div>
 </div>  <!-- tooltip-template -->
+{% endblock mainVisDiv_content %}
 
-	</div>
-	
-</main>
-</div>
-</div>
-
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/app.bundle.js"></script>
-		
+{% block endbody_tags %}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/fuse/2.6.1/fuse.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.6/dist/js/tooltipster.bundle.min.js" integrity="sha256-glChvCaC6IJq49dkfulAWd7xlkPwA0FEydjhjPBintA=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/static/scripts/nodelink_cluster_compare/tooltipster-SVG.min.js "></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts/nodelink_cluster_compare/tooltipster-SVG.min.js') }} "></script>
 <script src="https://cdn.jsdelivr.net/npm/tooltipster-discovery@1.0.2/tooltipster-discovery.min.js" integrity="sha256-Dourn8j/5jSXH2Egzdit/cc8UC9CRi7Xq/eIkQmhwnY=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.1/svg.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@4.12.2/build/d3.min.js" integrity="sha256-cWKrfHEXPxXrbQVvgVaWBek+7V28DPDf0rFZDKs+L2Y=" crossorigin="anonymous"></script>
@@ -208,9 +108,8 @@ Cluster Comparison Network
 <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-	var data_fname = "/static/data/cluster_compare/cluster_compare_science_communication_and_misinformation.json";
+	var data_fname = "{{ data_fname }}";
 </script>
-<script type="text/javascript" src="/static/scripts/nodelink_cluster_compare/nodelink_vis_cluster_compare.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/nodelink_cluster_compare/nodelink_vis_cluster_compare.js') }}"></script>
+{% endblock endbody_tags %}
 
-	</body>
-</html>
