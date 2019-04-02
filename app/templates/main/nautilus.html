@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/tooltipster-sideTip-noir.css') }}" type="text/css">
 
 <style type="text/css" media="screen">
+	#nautilus-loading {
+		margin: 5rem;
+	}
+
 	.tooltipster-content .title {
 		text-decoration: underline;
 		margin-bottom: 5px;
@@ -17,6 +21,11 @@
 
 	.tooltipster-content .venue {
 		font-style: italic;
+	}
+
+	/* The identifying text ("Science Communication and Misinformation") is too large. Make it smaller: */
+	#authorImageDiv p {
+		font-size: .7rem;
 	}
 </style>
 {% endblock custom_head_tags %}
@@ -27,6 +36,10 @@ Nautilus Diagram
 
 {% block mainVisDiv_content %}
 <div id="mainDiv">
+	<div class="spinner-border" id= "nautilus-loading" role="status">
+		<span class="sr-only">Loading...</span>
+	</div>
+	
 	<div id="graphDiv"></div>
 	<div id="chartsDiv"></div>
 </div>

@@ -25,10 +25,6 @@ d3.json(citationvis_data, function(error, graph) {
 function main(graph) {
 
 
-d3.select('#mainDiv').append('p')
-	.attr("class", "loadingText")
-	.text('Loading...');
-
 
 	// Get the most common Domain IDs for the ego author's papers
 	var domainsNest = d3.nest()
@@ -119,5 +115,6 @@ d3.select('#mainDiv').append('p')
 	// Event listeners that act across different visualization objects go here
 	citationVis.yearTickClickEventListener();
 	
-	d3.select(".loadingText").remove();
+	d3.select("#nautilus-loading").remove();
+	
 }
