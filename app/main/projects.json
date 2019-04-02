@@ -2,35 +2,35 @@
 	{
 		"name": "Coauthorship Visualization",
 		"description": "Shows the coauthorship network of the science communication and misinformation seed papers, highlighting the connections between important authors in the fields.",
-		"url": "vis/coauthorship",
+		"url": "/vis/coauthorship",
 		"img": "coauthorship_thumb.png",
 		"img_alt": "Thumbnail image of the coauthorship visualization"
 	},
 	{
 		"name": "Nautilus Diagram -- Citation Influence Visualization",
 		"description": "Shows important papers that have cited the science communication and misinformation seed papers, reflecting the influence these fields have had over time.",
-		"url": "vis/nautilus",
+		"url": "/vis/nautilus",
 		"img": "citationvis_thumb.png",
 		"img_alt": "Thumbnail image of the Nautilus Diagram"
 	},
 	{
 		"name": "Cluster Comparison Network",
 		"description": "Shows how the two sets of seed papers (science communication and misinformation) relate to the overall paper citation network, by visualizing representative clusters in each set, as well as their overlap and interaction.",
-		"url": "vis/cluster_compare",
+		"url": "/vis/cluster_compare",
 		"img": "TODO",
 		"img_alt": "TODO"
 	},
 	{
 		"name": "Extended Bibliography",
 		"description": "The extended bibliography is generated automatically based on the seed papers used for this analysis. Please see “Data and Methods” for more details.",
-		"url": "extended_bib",
+		"url": "/extended_bib",
 		"img": "TODO",
 		"img_alt": "TODO"
 	},
 	{
 		"name": "Keyword Mapping",
 		"description": "The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.",
-		"url": "keyword_mapping",
+		"url": "/keyword_mapping",
 		"img": "TODO",
 		"img_alt": "TODO"
 	}
