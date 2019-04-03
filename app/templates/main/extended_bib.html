@@ -56,6 +56,17 @@
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">{% block title %}Extended Bibliography{% endblock %}</h1>
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle mr-md-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Download Data
+				</button>
+				<div class="dropdown-menu">
+					{% for fname in download_fnames %}
+					<a class="dropdown-item" href="{{ fname['fname'] }}">{{ fname['desc'] }}</a>
+					{% endfor %}
+				</div>
+				
+			</div>
 
 		</div>
 		<p>

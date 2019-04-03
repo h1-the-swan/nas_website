@@ -49,6 +49,14 @@ Nautilus Diagram
 </div>
 {% endblock mainVisDiv_content %}
 
+{% block vis_description %}
+<h6>About the Nautilus Diagram</h6>
+<p>
+	{{ this_project['description']|safe }}
+</p>
+
+{% endblock vis_description %}
+
 {% block endbody_tags %}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@3.5.17/d3.min.js" integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>

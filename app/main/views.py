@@ -54,7 +54,11 @@ def extended_bib():
     projects = get_projects(current_app)
     this_project = projects[3]
     fname = url_for('static', filename='data/predictions_sciencecomm_and_misinfo_20190308.tsv')
-    return render_template('main/extended_bib.html', projects=projects, this_project=this_project, data_fname=fname)
+    download_fnames = [
+            {'desc': 'Excel format (xlsx)', 'fname': url_for('static', filename='data/predictions_sciencecomm_and_misinfo_20190308.xlsx')},
+            {'desc': 'Tab separated format (TSV)', 'fname': fname},
+    ]
+    return render_template('main/extended_bib.html', projects=projects, this_project=this_project, data_fname=fname, download_fnames=download_fnames)
 
 @main.route('/keywords/')
 def keyword_mapping():

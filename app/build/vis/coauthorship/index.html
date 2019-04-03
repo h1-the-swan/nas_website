@@ -66,89 +66,89 @@
 	<body>
 			
 
-
-
-
-
-
-
-
-
+	
+	
+	
+		
+			
+			
+		
+	
 
 <div class="container-fluid">
-<div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	<div class="sidebar-sticky">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<a class="nav-link" href="/">
-					<span data-feather="home"></span>
-					Home
-				</a>
-			</li>
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="/vis/coauthorship">
-					Coauthorship Visualization <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/nautilus">
-					Nautilus Diagram — Citation Influence Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/cluster_compare">
-					Cluster Comparison Network
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/extended_bib">
-					Extended Bibliography
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/keyword_mapping">
-					Keyword Mapping
-				</a>
-			</li>
-				
-			
-			
-	</div>
-</nav>
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="/">
+							<span data-feather="home"></span>
+							Home
+						</a>
+					</li>
+					
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/vis/coauthorship">
+							Coauthorship Visualization <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/nautilus">
+							Nautilus Diagram — Citation Influence Visualization
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/cluster_compare">
+							Cluster Comparison Network
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/extended_bib">
+							Extended Bibliography
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/keyword_mapping">
+							Keyword Mapping
+						</a>
+					</li>
+
+					
+					
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">
 Coauthorship Network
 </h1>
-	</div>
+		</div>
 
-	<div id="mainVis">
-		
+		<div id="mainVis">
+			
 
 <div id="tooltip-template">
 	<div class="author_name">
@@ -167,20 +167,24 @@ Coauthorship Network
 	</div>
 </div>  <!-- tooltip-template -->
 
-	</div>
+		</div>
 
-	<div class="vis-description">
-		
-		<p class="mt-5">
-			Coauthorship network for a set of research papers in the fields of science communication and misinformation. Nodes represent authors, and weighted links represent collaborations between authors on research papers. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. The colors of the nodes are assigned based on the top level of the hierarichal clustering. The size of the nodes represent the flow-based rank of each node in this network. The connected component with ten nodes or more are shown. Click and drag the nodes to move them around.
-		</p>
+		<div class="vis-description mt-5">
+			
+			
 
-		
+			<h6>About the Coauthorship Visualization</h6>
+			<p>
+				Coauthorship network for a set of research papers in the fields of science communication and misinformation. Nodes represent authors, and weighted links represent collaborations between authors on research papers. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. The colors of the nodes are assigned based on the top level of the hierarichal clustering. The size of the nodes represent the flow-based rank of each node in this network. The connected component with ten nodes or more are shown. Click and drag the nodes to move them around.
+			</p>
+			
+
+			
+		</div>
+
+
+		</main>
 	</div>
-	
-	
-</main>
-</div>
 </div>
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

@@ -48,89 +48,89 @@
 	<body>
 			
 
-
-
-
-
-
-
-
-
+	
+	
+	
+		
+			
+			
+		
+	
 
 <div class="container-fluid">
-<div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	<div class="sidebar-sticky">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<a class="nav-link" href="/">
-					<span data-feather="home"></span>
-					Home
-				</a>
-			</li>
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/coauthorship">
-					Coauthorship Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="/vis/nautilus">
-					Nautilus Diagram — Citation Influence Visualization <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/cluster_compare">
-					Cluster Comparison Network
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/extended_bib">
-					Extended Bibliography
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/keyword_mapping">
-					Keyword Mapping
-				</a>
-			</li>
-				
-			
-			
-	</div>
-</nav>
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="/">
+							<span data-feather="home"></span>
+							Home
+						</a>
+					</li>
+					
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/coauthorship">
+							Coauthorship Visualization
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/vis/nautilus">
+							Nautilus Diagram — Citation Influence Visualization <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/cluster_compare">
+							Cluster Comparison Network
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/extended_bib">
+							Extended Bibliography
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/keyword_mapping">
+							Keyword Mapping
+						</a>
+					</li>
+
+					
+					
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">
 Nautilus Diagram
 </h1>
-	</div>
+		</div>
 
-	<div id="mainVis">
-		
+		<div id="mainVis">
+			
 <div id="mainDiv">
 	<div class="spinner-border" id= "nautilus-loading" role="status">
 		<span class="sr-only">Loading...</span>
@@ -140,20 +140,21 @@ Nautilus Diagram
 	<div id="chartsDiv"></div>
 </div>
 
-	</div>
+		</div>
 
-	<div class="vis-description">
-		
-		<p class="mt-5">
-			The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Click on a node to view the paper (you may need to allow pop-ups for this).
-		</p>
+		<div class="vis-description mt-5">
+			
+<h6>About the Nautilus Diagram</h6>
+<p>
+	The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Click on a node to view the paper (you may need to allow pop-ups for this).
+</p>
 
-		
+
+		</div>
+
+
+		</main>
 	</div>
-	
-	
-</main>
-</div>
 </div>
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
