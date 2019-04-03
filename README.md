@@ -22,13 +22,13 @@ SECRET_KEY="some_secret_key"
 - Webpack watch for changes:
 	- `npm run dev`
 - Run server (separate terminal, virtualenv activated):
-	- source .env && `flask run`
+	- `source .env && flask run`
 - Open a web browser and navigate to <http://localhost:5000>
 
 ### Deploy
 
 The site is served as a static website from an AWS S3 bucket. `Frozen-Flask` (<https://pythonhosted.org/Frozen-Flask/>) is used to generate a static site in the `app/build` directory.
-Freeze static site:
-`python freeze.py`
-Sync static site to S3:
-`aws s3 sync app/build/ s3://<BUCKET_NAME>/ --acl public-read`
+- Freeze static site:
+	- `python freeze.py`
+- Sync static site to S3:
+	- `aws s3 sync app/build/ s3://<BUCKET_NAME>/ --acl public-read`
