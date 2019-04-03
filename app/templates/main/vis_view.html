@@ -28,7 +28,7 @@
 			</li>
 			{% for project in projects %}
 			
-			{% if vis_type in project['url'] %}
+			{% if this_project['url'] == project['url'] %}
 			<li class="nav-item">
 				<a class="nav-link active" href="{{ project['url'] }}">
 					{{ project['name'] }} <span class="sr-only">(current)</span>
@@ -56,6 +56,16 @@
 		{% block mainVisDiv_content %}
 		{% endblock mainVisDiv_content %}
 	</div>
+
+	<div class="vis-description">
+		{% block vis_description %}
+		<p class="mt-5">
+			{{ this_project['description']|safe }}
+		</p>
+
+		{% endblock vis_description %}
+	</div>
+	
 	
 </main>
 </div>

@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>National Academy of Science Report</title>
-<script type="text/javascript" charset="utf-8">
-	// Global variables:
-	var SCRIPT_ROOT = "";
-  var STATIC_FOLDER_ROOT = "/static";
-</script>
-		
+{% extends "base.html" %}
+
+{% block custom_head_tags %}
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-<link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css') }}" type="text/css" media="screen" charset="utf-8">
 <style type="text/css" media="screen">
 	#extendedBibTable {
 		font-size: .7rem;
 	}
 </style>
+{% endblock custom_head_tags %}
 
-	</head>
-	<body>
-			
-
-
-
-
-
-
-
-
-
+{% block content %}	
+{# <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"> #}
+{# <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a> #}
+{# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> #}
+{# <ul class="navbar-nav px-3"> #}
+{# <li class="nav-item text-nowrap"> #}
+{# 	<a class="nav-link" href="#">Sign out</a> #}
+{# </li> #}
+{# </ul> #}
+{# </nav> #}
 
 <div class="container-fluid">
 <div class="row">
@@ -37,68 +27,35 @@
 	<div class="sidebar-sticky">
 		<ul class="nav flex-column">
 			<li class="nav-item">
-				<a class="nav-link" href="/">
+				<a class="nav-link" href="{{ url_for('main.index') }}">
 					<span data-feather="home"></span>
 					Home
 				</a>
 			</li>
+			{% for project in projects %}
 			
-			
-			
+			{% if this_project['url'] == project['url'] %}
 			<li class="nav-item">
-				<a class="nav-link" href="/vis/coauthorship">
-					Coauthorship Visualization
+				<a class="nav-link active" href="{{ project['url'] }}">
+					{{ project['name'] }} <span class="sr-only">(current)</span>
 				</a>
 			</li>
 				
-			
-			
-			
-			
+			{% else %}
 			<li class="nav-item">
-				<a class="nav-link" href="/vis/nautilus">
-					Nautilus Diagram — Citation Influence Visualization
+				<a class="nav-link" href="{{ project['url'] }}">
+					{{ project['name'] }}
 				</a>
 			</li>
 				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/cluster_compare">
-					Cluster Comparison Network
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="/extended_bib">
-					Extended Bibliography <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/keyword_mapping">
-					Keyword Mapping
-				</a>
-			</li>
-				
-			
-			
+			{% endif %}
+			{% endfor %}
 	</div>
 </nav>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">Extended Bibliography</h1>
+		<h1 class="h2">{% block title %}Extended Bibliography{% endblock %}</h1>
 		
 	</div>
 		<table id="extendedBibTable"></table>
@@ -107,16 +64,14 @@
 </main>
 </div>
 </div>
+{% endblock content %}
 
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/app.bundle.js"></script>
-		
+{% block endbody_tags %}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@4.6.3/papaparse.min.js" integrity="sha256-1KCNEBmmUm8Oo4IOlg7ZnbFjBZXxCa9bILP7eGDqYOY=" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
-	var data_fname = "/static/data/predictions_sciencecomm_and_misinfo_20190308.tsv"
+	var data_fname = "{{ data_fname }}"
 console.log(data_fname);
 var data = Papa.parse(data_fname, {
 	download: true,
@@ -137,6 +92,4 @@ var data = Papa.parse(data_fname, {
 	}
 });
 </script>
-
-	</body>
-</html>
+{% endblock endbody_tags %}

@@ -10,9 +10,11 @@
   var STATIC_FOLDER_ROOT = "/static";
 </script>
 		
+<link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
+
 	</head>
 	<body>
-		
+			
 
 
 
@@ -23,160 +25,103 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<main role="main" class="container">
-
-<div>
-	<h1>Mapping Science Communication and Misinformation</h1>
-<p class="intro-text lead">
-	Over the last decade, the world has seen a rise in misinformation. The World Economic Forum identified this rise as an existential threat to society, on par with terrorism, cyberwarfare, and global governance failure. Most of the attention has centered on misinformation about politics, government propaganda and festering conspiracy theories. Relatively less attention has been given to misinformation in, and about, science, where misappropriated nutritional advice spreads virally in the news and on social media, measles outbreaks due to lowering vaccination rates are creating states of emergencies the U.S., predatory journals are fooling both the public and researchers themselves, and videos promoting the flat earth theory are commonly recommended on YouTube. The goal of this interactive report is to find out who is working on this topic of science misinformation and how this emerging, interdisciplinary domain connects across the disciplinary landscape. The research draws heavily from science communication research, as one would expect, but the researchers come from pyschology, education, science and technology studies, journalism, computer science, etc. Using bibliographic maps, we examine the state of the field through interactive visualizations, co-authorship graphs and keyword analysis that we plan to update as new data and papers are published.
-</p>	
-<a href="/static/img/map1.png" target="_blank"><img src="/static/img/map1.png" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a>
-</div>
-
-<div class="section projects" id="projects">
-	<div class="container">
-
-
-		
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="/vis/coauthorship">
-						<h5>Coauthorship Visualization</h5>
-					</a>
-				</div>
+<div class="container-fluid">
+<div class="row">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+	<div class="sidebar-sticky">
+		<ul class="nav flex-column">
+			<li class="nav-item">
+				<a class="nav-link" href="/">
+					<span data-feather="home"></span>
+					Home
+				</a>
+			</li>
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/vis/coauthorship">
+					Coauthorship Visualization
+				</a>
+			</li>
 				
-				<div class="pl-md-5 float-md-right col-md-3 d-flex justify-content-sm-center">
-					<img class="img-thumbnail border-0" src="/static/img/coauthorship_thumb.png" alt="Thumbnail image of the coauthorship visualization"/>
-				</div>
+			
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/vis/nautilus">
+					Nautilus Diagram — Citation Influence Visualization
+				</a>
+			</li>
 				
-				<div class="card-text project-description text-justify">
-					<p>Shows the coauthorship network of the science communication and misinformation seed papers, highlighting the connections between important authors in the fields.</p>
-				</div>
-			</div>
-		</div>
+			
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/vis/cluster_compare">
+					Cluster Comparison Network
+				</a>
+			</li>
+				
+			
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link" href="/extended_bib">
+					Extended Bibliography
+				</a>
+			</li>
+				
+			
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link active" href="/vis/keyword_mapping">
+					Keyword Mapping <span class="sr-only">(current)</span>
+				</a>
+			</li>
+				
+			
+			
+	</div>
+</nav>
 
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h1 class="h2">
+	Keyword Mapping
+</h1>
+	</div>
+
+	<div id="mainVis">
 		
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="/vis/nautilus">
-						<h5>Nautilus Diagram -- Citation Influence Visualization</h5>
-					</a>
-				</div>
-				
-				<div class="pl-md-5 float-md-right col-md-3 d-flex justify-content-sm-center">
-					<img class="img-thumbnail border-0" src="/static/img/citationvis_thumb.png" alt="Thumbnail image of the Nautilus Diagram"/>
-				</div>
-				
-				<div class="card-text project-description text-justify">
-					<p>Shows important papers that have cited the science communication and misinformation seed papers, reflecting the influence these fields have had over time.</p>
-				</div>
-			</div>
-		</div>
-
-		
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="/vis/cluster_compare">
-						<h5>Cluster Comparison Network</h5>
-					</a>
-				</div>
-				
-				<div class="card-text project-description text-justify">
-					<p>Shows how the two sets of seed papers (science communication and misinformation) relate to the overall paper citation network, by visualizing representative clusters in each set, as well as their overlap and interaction.</p>
-				</div>
-			</div>
-		</div>
-
-		
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="/extended_bib">
-						<h5>Extended Bibliography</h5>
-					</a>
-				</div>
-				
-				<div class="card-text project-description text-justify">
-					<p>The extended bibliography is generated automatically based on the seed papers used for this analysis. Please see “Data and Methods” for more details.</p>
-				</div>
-			</div>
-		</div>
-
-		
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="/keyword_mapping">
-						<h5>Keyword Mapping</h5>
-					</a>
-				</div>
-				
-				<div class="card-text project-description text-justify">
-					<p>The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.</p>
-				</div>
-			</div>
-		</div>
-
-		
-
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					<h5>
-						Data and Methods
-					</h5>
-					<p class="project description">
-						Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then apply automated methods for finding related papers through citation links and word similarity. To begin our analysis, we used two bibliographies. The first set we call “Collection 1” (C1). This set consisted of papers in an Endnote library assembled by the National Academy. Details on how this Endnote library was constructed is provided in further documentation. The second set we call “Collection 2" (C2). This collection of papers comes from the National Academy report on “Communicating Science Effectively: A Research Agenda.” This report was published in 2017 and included many of the top scholars in the field of science communication. C1 focused more on misinformation research. C2 focused more generally on science communication. In parts of the analysis, we separate C1 and C2. We do this when separating the misinformation literature from the science communication literature. For most of the analysis, though, we combine C1 and C2. We call this combined set C3. For this report, we have extracted the titles from the Endnote library and from the National Academy report. We matched these titles to records in the Web of Science (WoS) and added additional metadata to records missing information. For many of these records, we had to fill in data by hand. Some tasks can be automated. The final seed set for C3 included 1,075 papers. There 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There 63 papers that existed in both C1 and C2.
-					</p>
-				</div>
-			</div>
-		</div>
+<img src="/static/img/5_word_minimum.png" alt=""/>
+	
 
 	</div>
+
+	<div class="vis-description">
+		
+		<p class="mt-5">
+			
+		</p>
+
+		
+	</div>
+	
+	
+</main>
 </div>
-
-	<p>
-		This online, interactive report was created by Jevin West, Jason Portenoy and the National Academy of Sciences. The interactive maps allow users to explore the emerging fields of science communication and misinformation research.
-	</p>
-</main><!-- /.container -->
-
+</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="/static/app.bundle.js"></script>
 		
-<script type="text/javascript" src="/static/index.bundle.js"></script>
-
+		
 	</body>
 </html>

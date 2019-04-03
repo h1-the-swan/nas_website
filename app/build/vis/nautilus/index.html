@@ -25,6 +25,10 @@
 		margin: 5rem;
 	}
 
+	.citationVis-loading .vis-description {
+		visibility: hidden;
+	}
+
 	.tooltipster-content .title {
 		text-decoration: underline;
 		margin-bottom: 5px;
@@ -79,7 +83,7 @@
 			
 			<li class="nav-item">
 				<a class="nav-link active" href="/vis/nautilus">
-					Nautilus Diagram -- Citation Influence Visualization <span class="sr-only">(current)</span>
+					Nautilus Diagram — Citation Influence Visualization <span class="sr-only">(current)</span>
 				</a>
 			</li>
 				
@@ -108,7 +112,7 @@
 			
 			
 			<li class="nav-item">
-				<a class="nav-link" href="/keyword_mapping">
+				<a class="nav-link" href="/vis/keyword_mapping">
 					Keyword Mapping
 				</a>
 			</li>
@@ -137,6 +141,16 @@ Nautilus Diagram
 </div>
 
 	</div>
+
+	<div class="vis-description">
+		
+		<p class="mt-5">
+			The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Click on a node to view the paper (you may need to allow pop-ups for this).
+		</p>
+
+		
+	</div>
+	
 	
 </main>
 </div>

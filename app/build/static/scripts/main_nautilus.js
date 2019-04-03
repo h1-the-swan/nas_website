@@ -13,6 +13,8 @@ var citationVis = nautilus_vis.citationVis;
 var egoGraphVis = nautilus_vis.egoGraphVis;
 var lineChartByYear = nautilus_vis.lineChartByYear;
 
+$('main').addClass('citationVis-loading');
+
 d3.json(citationvis_data, function(error, graph) {
 	if (error) {
 		throw error;
@@ -23,7 +25,6 @@ d3.json(citationvis_data, function(error, graph) {
 });
 
 function main(graph) {
-
 
 
 	// Get the most common Domain IDs for the ego author's papers
@@ -116,5 +117,6 @@ function main(graph) {
 	citationVis.yearTickClickEventListener();
 	
 	d3.select("#nautilus-loading").remove();
+	$('main').removeClass('citationVis-loading');
 	
 }

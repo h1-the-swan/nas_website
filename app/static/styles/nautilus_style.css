@@ -1,4 +1,4 @@
-body {
+.mainDiv {
   font-family: Baskerville;
 	/* font-size: 1.6em; */
   /* font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif; */
@@ -8,23 +8,23 @@ body {
 	/* background-image: url("../img/square_bg.png"); */
 }
 
-div#contents {
+.mainDiv div#contents {
 	/* padding-top: 1rem; */
 	/* padding-bottom: 5rem; */
 	padding: 10px;
 	background: white;
 }
 
-p {
+.mainDiv p {
   font-family: "Franklin Gothic";
 	font-size: 1.6rem;
 }
 
-.spinner {
-	display: none;
-}
+/* .spinner { */
+/* 	display: none; */
+/* } */
 
-ul {
+.mainDiv ul {
 	list-style-type: none;
 }
 
@@ -47,7 +47,7 @@ ul {
 	margin: 0;
 }
 
-a {
+.mainDiv a {
 	text-decoration: none;
 }
 
@@ -57,7 +57,7 @@ a {
 	color: inherit;
 }
 
-a:hover {
+.mainDiv a:hover {
 	text-decoration: underline;
 }
 
@@ -69,11 +69,11 @@ a:hover {
 	font-size: 1.6rem;
 }
 
-div.right-side {
+.mainDiv div.right-side {
 	/* margin-left: 0; */
 }
 
-div.right-side .row {
+.mainDiv div.right-side .row {
 	float: right;
 }
 
