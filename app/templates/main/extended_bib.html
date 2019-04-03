@@ -12,57 +12,60 @@
 
 {% block content %}	
 {# <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"> #}
-{# <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a> #}
-{# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> #}
-{# <ul class="navbar-nav px-3"> #}
-{# <li class="nav-item text-nowrap"> #}
-{# 	<a class="nav-link" href="#">Sign out</a> #}
-{# </li> #}
-{# </ul> #}
-{# </nav> #}
+	{# <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a> #}
+	{# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> #}
+	{# <ul class="navbar-nav px-3"> #}
+		{# <li class="nav-item text-nowrap"> #}
+			{# 	<a class="nav-link" href="#">Sign out</a> #}
+			{# </li> #}
+		{# </ul> #}
+	{# </nav> #}
 
 <div class="container-fluid">
-<div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	<div class="sidebar-sticky">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<a class="nav-link" href="{{ url_for('main.index') }}">
-					<span data-feather="home"></span>
-					Home
-				</a>
-			</li>
-			{% for project in projects %}
-			
-			{% if this_project['url'] == project['url'] %}
-			<li class="nav-item">
-				<a class="nav-link active" href="{{ project['url'] }}">
-					{{ project['name'] }} <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			{% else %}
-			<li class="nav-item">
-				<a class="nav-link" href="{{ project['url'] }}">
-					{{ project['name'] }}
-				</a>
-			</li>
-				
-			{% endif %}
-			{% endfor %}
-	</div>
-</nav>
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('main.index') }}">
+							<span data-feather="home"></span>
+							Home
+						</a>
+					</li>
+					{% for project in projects %}
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">{% block title %}Extended Bibliography{% endblock %}</h1>
-		
-	</div>
+					{% if this_project['url'] == project['url'] %}
+					<li class="nav-item">
+						<a class="nav-link active" href="{{ project['url'] }}">
+							{{ project['name'] }} <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ project['url'] }}">
+							{{ project['name'] }}
+						</a>
+					</li>
+
+					{% endif %}
+					{% endfor %}
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">{% block title %}Extended Bibliography{% endblock %}</h1>
+
+		</div>
+		<p>
+			Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.
+		</p>
 		<table id="extendedBibTable"></table>
 
-	
-</main>
-</div>
+
+		</main>
+	</div>
 </div>
 {% endblock content %}
 
@@ -72,7 +75,23 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var data_fname = "{{ data_fname }}"
-console.log(data_fname);
+var columnsToShow = [
+	'rank',
+	'Paper_ID',
+	'issn',
+	'isbn',
+	'doi',
+	'pub_date',
+	'title',
+	'title_source',
+	'title_source_abbrev',
+	'subject_traditional',
+	'heading',
+	'subheading',
+	'pub_type',
+	// 'keyword',
+];
+
 var data = Papa.parse(data_fname, {
 	download: true,
 	delimiter: "\t",
@@ -83,10 +102,16 @@ var data = Papa.parse(data_fname, {
 		var columnConf = [],
 			fields = results.meta.fields;
 		for (var i = 0, len = fields.length; i < len; i++) {
-			columnConf.push({ title: fields[i], data: fields[i] });
+			if (columnsToShow.includes(fields[i])) {
+				var thisColumnVisible = true;
+			} else {
+				var thisColumnVisible = false;
+			}
+			columnConf.push({ title: fields[i], data: fields[i], visible: thisColumnVisible });
 		}
 		$('#extendedBibTable').DataTable( {
 			data: results.data,
+			pageLength: 50,
 			columns: columnConf
 		} );
 	}
