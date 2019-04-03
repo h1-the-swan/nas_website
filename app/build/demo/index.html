@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,7 +26,9 @@
 		margin: 5rem;
 	}
 
-	.citationVis-loading .vis-description {
+	.citationVis-loading .vis-description,
+	.citationVis-loading .vis-methods
+	{
 		visibility: hidden;
 	}
 
@@ -148,7 +151,7 @@ Nautilus Diagram
 
 <h6>About the Nautilus Diagram</h6>
 <p>
-	The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Click on a node to view the paper (you may need to allow pop-ups for this).
+	The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Links between nodes represent citations, either to a paper in the central collection, or to another paper in the displayed network (thicker lines represent more citations). Click on a node to view the paper (you may need to allow pop-ups for this).
 </p>
 <a href="/vis/nautilus/about/">Click here to learn more about the nautilus diagram.</a>
 
@@ -160,6 +163,29 @@ Nautilus Diagram
 	
 
 		</div>
+
+		<div class="vis-methods mt-5">
+			
+			
+					
+<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
+	<h5>
+		Data and Methods
+	</h5>
+</a>
+<p class="collapse " id="methodsText">
+	
+					The data for this visualization comes from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. Publications were assigned categories (colors) using K-Means—an unsupervised clustering technique that takes into account the publications' titles as well as Fields of Study keywords inferred by Microsoft's web crawlers. As the "number of citations" line chart indicates, there are typically more citing articles than can be displayed in the nautilus network, so only the top papers (by Eigenfactor) are shown there. Nodes closer to the center are citing publications with earlier publication dates; papers more distant from the center are more recent.
+					
+</p>
+
+
+				
+			
+				
+			
+		</div>
+		
 
 
 		</main>

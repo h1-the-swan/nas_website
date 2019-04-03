@@ -1,0 +1,11 @@
+{% macro collapsible(ref_id='methodsText', heading='Data and Methods', extra_classes='') %}
+<a data-toggle="collapse" class="methodsCollapseToggle" href="#{{ ref_id }}" aria-expanded="false" aria-controls="{{ ref_id }}">
+	<h5>
+		{{ heading }}
+	</h5>
+</a>
+<p class="collapse {{ extra_classes }}" id="{{ ref_id }}">
+	{{ caller() }}
+</p>
+
+{% endmacro %}
