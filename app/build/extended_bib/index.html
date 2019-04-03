@@ -22,90 +22,93 @@
 	<body>
 			
 
-
-
-
-
-
-
-
-
+	
+	
+	
+		
+			
+			
+		
+	
 
 <div class="container-fluid">
-<div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-	<div class="sidebar-sticky">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<a class="nav-link" href="/">
-					<span data-feather="home"></span>
-					Home
-				</a>
-			</li>
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/coauthorship">
-					Coauthorship Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/nautilus">
-					Nautilus Diagram — Citation Influence Visualization
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/cluster_compare">
-					Cluster Comparison Network
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link active" href="/extended_bib">
-					Extended Bibliography <span class="sr-only">(current)</span>
-				</a>
-			</li>
-				
-			
-			
-			
-			
-			<li class="nav-item">
-				<a class="nav-link" href="/vis/keyword_mapping">
-					Keyword Mapping
-				</a>
-			</li>
-				
-			
-			
-	</div>
-</nav>
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="/">
+							<span data-feather="home"></span>
+							Home
+						</a>
+					</li>
+					
 
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">Extended Bibliography</h1>
-		
-	</div>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/coauthorship">
+							Coauthorship Visualization
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/nautilus">
+							Nautilus Diagram — Citation Influence Visualization
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/cluster_compare">
+							Cluster Comparison Network
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/extended_bib">
+							Extended Bibliography <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/keyword_mapping">
+							Keyword Mapping
+						</a>
+					</li>
+
+					
+					
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Extended Bibliography</h1>
+
+		</div>
+		<p>
+			Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.
+		</p>
 		<table id="extendedBibTable"></table>
 
-	
-</main>
-</div>
+
+		</main>
+	</div>
 </div>
 
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -117,7 +120,23 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var data_fname = "/static/data/predictions_sciencecomm_and_misinfo_20190308.tsv"
-console.log(data_fname);
+var columnsToShow = [
+	'rank',
+	'Paper_ID',
+	'issn',
+	'isbn',
+	'doi',
+	'pub_date',
+	'title',
+	'title_source',
+	'title_source_abbrev',
+	'subject_traditional',
+	'heading',
+	'subheading',
+	'pub_type',
+	// 'keyword',
+];
+
 var data = Papa.parse(data_fname, {
 	download: true,
 	delimiter: "\t",
@@ -128,10 +147,16 @@ var data = Papa.parse(data_fname, {
 		var columnConf = [],
 			fields = results.meta.fields;
 		for (var i = 0, len = fields.length; i < len; i++) {
-			columnConf.push({ title: fields[i], data: fields[i] });
+			if (columnsToShow.includes(fields[i])) {
+				var thisColumnVisible = true;
+			} else {
+				var thisColumnVisible = false;
+			}
+			columnConf.push({ title: fields[i], data: fields[i], visible: thisColumnVisible });
 		}
 		$('#extendedBibTable').DataTable( {
 			data: results.data,
+			pageLength: 50,
 			columns: columnConf
 		} );
 	}

@@ -1,0 +1,24 @@
+{% extends "main/nautilus.html" %}
+
+{% block endbody_tags %}
+{{ super() }}
+
+<script type="text/javascript" charset="utf-8">
+$('.sidebar').remove();	
+
+$(document).on('initComplete', function() {
+	// Loop forward and backward indefinitely.
+	// Check every 4 seconds
+	setInterval(function() {
+		if (citationVis.egoGraphVis.currYear >= 2017) {
+			// rewind
+			citationVis.egoGraphVis.newDestinationNode(1999);
+		}
+		if (citationVis.egoGraphVis.currYear <= 1999) {
+			// go forward
+			citationVis.egoGraphVis.newDestinationNode(2017);
+		}
+	}, 4000);
+});
+</script>
+{% endblock endbody_tags %}

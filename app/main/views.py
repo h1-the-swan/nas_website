@@ -59,3 +59,10 @@ def extended_bib():
 @main.route('/keywords/')
 def keyword_mapping():
     return redirect(url_for('main.vis', vis_type='keyword_mapping'))
+
+@main.route('/demo/')
+def nautilus_demo():
+    projects = get_projects(current_app)
+    this_project = projects[1]
+    fname = url_for('static', filename="data/nautilus/nas2_mag_doi_join_network_fulldata_with_fos_names.json")
+    return render_template('main/nautilus_demo.html', projects=projects, vis_type='nautilus', data_fname=fname, this_project=this_project)
