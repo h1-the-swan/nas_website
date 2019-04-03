@@ -103,6 +103,13 @@
 
 {% endblock content %}
 
+{% block footer_endcontent %}
+<p>
+	Misinformationresearch.org was created using Python <a href="http://flask.pocoo.org/" target="_blank">Flask</a>. Interactive visualizations use <a href="https://d3js.org/" target="_blank">D3</a>. The source code for this website is available <a href="https://github.com/h1-the-swan/nas_website" target="_blank">here</a>.
+</p>
+	
+{% endblock footer_endcontent %}
+
 {% block endbody_tags %}
 <script type="text/javascript" src="{{ url_for('static', filename='index.bundle.js') }}"></script>
 {% endblock endbody_tags %}
