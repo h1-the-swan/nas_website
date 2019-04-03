@@ -49,6 +49,10 @@ def nautilus_vis():
 def cluster_compare_vis():
     return redirect(url_for('main.vis', vis_type='cluster_compare'))
 
+@main.route('/vis/nautilus/about/')
+def nautilus_about():
+    return render_template('main/nautilus_about.html')
+
 @main.route('/extended_bib/')
 def extended_bib():
     projects = get_projects(current_app)

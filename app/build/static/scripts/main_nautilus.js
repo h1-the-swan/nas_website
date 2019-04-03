@@ -20,7 +20,6 @@ d3.json(citationvis_data, function(error, graph) {
 		throw error;
 	}
 	// main(graph);
-	console.log(citationVis);
 	main(graph);
 });
 

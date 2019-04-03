@@ -36,6 +36,7 @@
 
 {% block title %}
 Nautilus Diagram
+<a href="{{ url_for('main.nautilus_about') }}" id="aboutLink"><button type="button" class="btn btn-primary ml-md-5">About</button></a>
 {% endblock title %}
 
 {% block mainVisDiv_content %}
@@ -54,6 +55,7 @@ Nautilus Diagram
 <p>
 	{{ this_project['description']|safe }}
 </p>
+<a href="{{ url_for('main.nautilus_about') }}">Click here to learn more about the nautilus diagram.</a>
 
 {% endblock vis_description %}
 

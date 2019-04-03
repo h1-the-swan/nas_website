@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block custom_head_tags %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/nautilus_about.css')}}" type="text/css" media="screen" charset="utf-8">
+<style type="text/css" media="screen">
+	.aboutText {
+		font-family: "Franklin Gothic";
+		font-size: 1.1rem;
+		color: black;
+	}
+</style>
+{% endblock custom_head_tags %}
+
+{# {% block header %} #}
+{# <div class="subtitle"> #}
+{# <nav> #}
+{# 	<a href="#visualization">Visualization</a> | #}
+{# 	<a href="#faq">FAQ</a> | #}
+{# 	<a href="#people">People</a> #}
+{# </nav> #}
+{# <h3>Welcome to scholar.eigenfactor.org.</h3> #}
+{# <h5>Tools for Measuring, Visualizing, and Exploring Scholarly Influence</h5> #}
+{# </div> #}
+{# 	<div id="backLink"> #}
+{# 		<a href="{{ url_for('index') }}"><p class="removed">Back to the visualization</a></p> #}
+{# 	</div> #}
+{# {% endblock %} #}
+
+{% block content %}
+<main role="main" class="container">
+<div id="mainDiv">
+	<div class="header mb-5">
+		<h1>About the Nautilus Diagram</h1>
+		<a href="{{ url_for('main.vis', vis_type='nautilus') }}">Back to the interactive visualization</a>
+	</div>
+	<!-- <div id="backgroundImg"><img src="background.png" /></div> -->
+
+	<p class='aboutText'>The scholarly literature is a vast store of formalized human knowledge, interconnected by citations between publications.</p>
+	<p class='aboutText'>Looking at these citations is one way to measure the influence of scholarly research. Metrics like h-index&mdash;prominently displayed by services such as Google Scholar&mdash;measure influence by counting citations. But with more complete data about these citations getting better and more accessible every day, we can do better.</p>
+	<hr style="width: 10%;">
+	<a name="visualization"></a>
+	<p class='aboutText'>
+	The scholar visualization tool shows the influence a central collection of publications has had across different fields, telling the story of how this influence has developed over time. The collection of interest (representing, for example, an author, or an emerging field) is shown as the central node in a network, and other papers that have cited papers in this collection are shown as circular nodes surrounding the central one. The animation progresses forward in time; as new papers appear, they send out links representing citations, both to the central node and to other nodes that appear in this network.
+	</p>
+
+	<div class="aboutImg"><img src="{{ url_for('static', filename='img/network_about.png') }}" alt="Image explaining the network diagram. The center node represents all of the papers authored by the scholar of interest. Surrounding nodes represent papers that have cited work by the scholar of interest. Lines between the nodes show citations between papers. Papers are revealed by year in a spiral formation, so that earlier papers appear closer to the center. Showing a scholar's influence: The size of each node is scaled by the Eigenfactor score of that paper—a metric of influence that takes into account its position in the total citation network. Bigger nodes represent the most influential papers that have cited the central scholar. The color of each node shows the academic discipline of the paper. A more colorful network means that the impact of the central scholar’s work has extended out to a wider range of fields. The color of the center node represents the dominant field of the central scholar—the most common field of all the scholar’s publications." /></div>
+
+	<p class='aboutText'>
+	In order to reduce the visual complexity of the graph, not all of the papers that have cited the central collection are represented. Rather, the most influential papers (by Eigenfactor score) are selected to be visualized as nodes in the network.
+	</p>
+
+	<p class='aboutText'>
+	Below the network diagram, line charts show key indicators over time:
+	</p>
+	
+	<div class="aboutImg"><img src="{{ url_for('static', filename='img/lineCharts_about.png') }}" alt="Image explaining the line charts. Top chart: Number of publications by the central scholar. Middle chart: The number of times that a paper authored by the central scholar was cited in each year. Bottom chart: The sum of the Eigenfactor score for each of the central scholar’s paper in each year. A higher value means that the scholar’s output in this year had a large impact. Note that since impact can take time to accumulate, more recent years tend to have lower scores. Colors on the line charts show funding from the Pew program, marking the periods before, during, and after funding." /></div>
+
+	{# <h3 style="padding-top: 1.5em;">A note on comparing authors:</h3> #}
+	{# <p class='aboutText'> #}
+	{# Scales are relative to each author, so the size of the nodes and the y-axes on the timelines are not consistent between authors. For this reason, direct comparison between different authors is not recommended. However, comparing the <em>relative densities</em> of the graphs can reveal information about the types of community represented by the citation networks. #}
+	{# </p> #}
+	{# <div class="aboutImg"><img src="../static/img/density_about.png" style="width: 50em;" alt="Image comparing relative densities of two different graphs. A denser network means that the papers that cite the central author also tend to cite each other. A more sparse network indicates fewer citations between papers shown in the network. This could be a result of the central scholar having impact across a wider set of academic communities." /></div> #}
+  {#  #}
+	<hr style="width: 80%;"/>
+	{# <section class="faq"> #}
+	{# <a name="faq"></a> #}
+	{# 	{% include "main/nautilus_faq.html" %} #}
+	{# </section> #}
+
+
+	<hr style="width: 80%;"/>
+
+	<section class="people">
+	<a name="people"></a>
+		<h1>People</h1>
+		<div class="content">
+
+			<div class="person Jason">
+				<a class="anchor" id="jason"></a>
+				{# <img src="../static/img/jason_thumb.jpg" alt="Jason Portenoy" /> #}
+				<div class="info">
+					<ul>
+					<li><h4>Jason Portenoy</h4></li>
+					<li>PhD Student</li>
+					<li><a href="http://jasport.org/" target="_blank">Personal Website</a></li>
+					</ul>
+				</div>
+
+				<p>
+				Jason is a PhD student in the University of Washington Information School. He has a background in neuroscience and biomedical research, and currently studies data science and data visualization. He is a member of UW's <a href="https://datalab.ischool.uw.edu" target="_blank">DataLab</a>.
+				</p>
+			</div>
+
+			<div class="person Jevin">
+				{# <img src="../static/img/jevin_thumb.jpg" alt="Jevin West" /> #}
+				<div class="info">
+					<ul>
+					<li><h4>Jevin West</h4></li>
+					<li>Assistant Professor</li>
+					<li><a href="http://www.jevinwest.org/" target="_blank">Personal Website</a></li>
+					<li><a href="mailto:jevinw@uw.edu" target="_blank">jevinw@uw.edu</a></li>
+					<li>Phone: 206-543-2646</li>
+					</ul>
+				</div>
+
+				<p>
+				Jevin West is an Assistant Professor at the University of Washington Information School and a Data Science Fellow at the <a href="http://escience.washington.edu" target="_blank">eScience Institute</a>.  His research lies at the cross section of network science, knowledge organization and information visualization.  He co-directs the <a href="https://datalab.ischool.uw.edu" target="_blank">DataLab</a> at UW and is the co-founder of the <a href="http://eigenfactor.org/" target="_blank">Eigenfactor</a> project.  Prior to joining the faculty at UW, he was a postdoctoral fellow in the Department of Physics at Umea University in Sweden and received his PhD in Biology from UW.
+				</p>
+			</div>
+		</div>
+	</section>
+
+</div>
+
+<footer>
+	<hr style="width: 80%;"/>
+	<div id="datalab">
+		<a href="https://datalab.ischool.uw.edu/" target="_blank">
+			<img src="{{ url_for('static', filename='img/datalab-logo.png') }}" alt="University of Washington DataLab" />
+		</a>
+	</div>
+	<div id="ischool-logo">
+		<a href="https://ischool.uw.edu/" target="_blank">
+			<img src="{{ url_for('static', filename='img/ischool-logo.png') }}" alt="University of Washington Information School" />
+		</a>
+</div>
+</footer>
+
+<script>
+	// https://css-tricks.com/snippets/javascript/get-url-variables/
+	function getQueryVariable(variable)
+	{
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i=0; i<vars.length; i++) {
+					var pair = vars[i].split("=");
+					if(pair[0] == variable) {return pair[1];}
+			}
+			return(false);
+	}
+	// var source = getQueryVariable('source');
+	// window.onload = function() {
+	// 	if (source) {
+	// 		$( "#backLink" ).html( '<a href="../' + source + '"><p>Back to the visualization</p></a>' );
+	// 	}
+
+		// $( '#linkToAbout' ).hide();
+	};
+	
+
+</script>
+</main>
+{% endblock %}

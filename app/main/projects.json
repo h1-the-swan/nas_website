@@ -35,6 +35,7 @@
 		"description_short": "The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.",
 		"url": "/vis/keyword_mapping",
 		"img": "5_word_minimum_thumb.png",
-		"img_alt": "Thumbnail image of the co-occurrence map"
+		"img_alt": "Thumbnail image of the co-occurrence map",
+		"description": "The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers. This is a static visualization (non-interactive)."
 	}
 ]

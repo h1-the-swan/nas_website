@@ -1,10 +1,20 @@
 {% extends "main/nautilus.html" %}
 
+{% block vis_description %}
+{{ super() }}
+<hr>
+<p style="visibility: visible;">
+	Currently in <strong>demo mode</strong>. <a href="{{ url_for('main.index') }}">Click here to go to the home page.</a>
+</p>
+	
+{% endblock vis_description %}
+
 {% block endbody_tags %}
 {{ super() }}
 
 <script type="text/javascript" charset="utf-8">
 $('.sidebar').remove();	
+$('#aboutLink').remove();
 
 $(document).on('initComplete', function() {
 	// Loop forward and backward indefinitely.

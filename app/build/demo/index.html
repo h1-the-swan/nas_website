@@ -126,6 +126,7 @@
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">
 Nautilus Diagram
+<a href="/vis/nautilus/about/" id="aboutLink"><button type="button" class="btn btn-primary ml-md-5">About</button></a>
 </h1>
 		</div>
 
@@ -144,11 +145,19 @@ Nautilus Diagram
 
 		<div class="vis-description mt-5">
 			
+
 <h6>About the Nautilus Diagram</h6>
 <p>
 	The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Click on a node to view the paper (you may need to allow pop-ups for this).
 </p>
+<a href="/vis/nautilus/about/">Click here to learn more about the nautilus diagram.</a>
 
+
+<hr>
+<p style="visibility: visible;">
+	Currently in <strong>demo mode</strong>. <a href="/">Click here to go to the home page.</a>
+</p>
+	
 
 		</div>
 
@@ -160,6 +169,14 @@ Nautilus Diagram
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="/static/app.bundle.js"></script>
+		
+		<div class="container">
+			<br>
+			<p>
+				This online, interactive report was created by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the National Academy of Sciences. Please <a href="mailto:jporteno+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools or other content.
+			</p>
+		</div>
+		
 		
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -178,6 +195,7 @@ Nautilus Diagram
 
 <script type="text/javascript" charset="utf-8">
 $('.sidebar').remove();	
+$('#aboutLink').remove();
 
 $(document).on('initComplete', function() {
 	// Loop forward and backward indefinitely.

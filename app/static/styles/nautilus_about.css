@@ -1,0 +1,123 @@
+	.removed {
+		display: none;
+	}
+
+	/* .aboutText { */
+	/* 	padding: 0 10%; */
+	/* 	font-size: 14pt; */
+	/* } */
+
+	.aboutImg img {
+		width: 100%;
+		min-width: 680px;
+	}
+
+	#backgroundImg {
+		position: relative;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	#backgroundImg img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: auto;
+		opacity: .5;
+	}
+
+	/*
+	h3 {
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	*/
+
+section {
+    /*position: relative;*/
+    vertical-align: top;
+    text-align: left;
+    display: block;
+    float: right;
+    margin-right: 5%;
+    clear: left;
+    padding-top: 30px;
+    /*background-color: rgba(232, 207, 216, 0.5);*/
+}
+
+
+section h1{
+    padding-left: 10px;
+}
+section .people {
+    display: block;
+    
+}
+
+p.faq.question {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.person {
+    display: inline-block;
+    clear: both;
+    /*float: right;*/
+    padding: 5px 0 50px 0;
+}
+
+.people img {
+    /*height: 250px;*/
+    
+    display: block;
+    float: left;
+}
+
+.people .info {
+    width: 20%;
+    display: block;
+    float: left;
+}
+
+.people .info ul {
+    margin: 5px 0 0 8px;
+    padding: 0;
+}
+
+.people .info li {
+    display: block;
+    float: left;
+    padding: 2px 0px;
+    margin: 0 0px;
+    clear: left;
+    font-size: 12px;
+}
+
+.people h4 {
+    font-size: 15px;
+    margin: 0 5px 0 0;
+}
+
+.people p {
+    margin-top: 0px;
+    width: 60%;
+    display: block;
+    float: left;
+}
+	footer {
+		clear: both;
+		text-align: center;
+		vertical-align: bottom;
+	}
+	footer div{
+		padding: 0 15px 25px 15px;
+		display: inline-block;
+	}
+
+	footer img{
+		height: 50%;
+		width: 50%;
+	}
+
+
