@@ -14,12 +14,16 @@ freezer.init_app(app)
 
 projects = get_projects(app)
 
+# This will make sure that all of the vis project pages are included.
+# See Frozen-Flask documentation for more info.
 @freezer.register_generator
 def vis():
     for project in projects:
-        vis_type = project['url'].split('/')[-1]
-        # yield (endpoint, values) tuple
-        yield ('main.vis', {'vis_type': vis_type})
+        url_split = project['url'].split('/')
+        if 'vis' in url_split:
+            vis_type = url_split[-1]
+            # yield (endpoint, values) tuple
+            yield ('main.vis', {'vis_type': vis_type})
 
 if __name__ == '__main__':
     freezer.freeze()

@@ -60,6 +60,8 @@ p.faq.question {
 	margin-bottom: 0;
 }
 
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
 .person {
     display: inline-block;
     clear: both;
@@ -80,16 +82,9 @@ p.faq.question {
     float: left;
 }
 
-.people .info ul {
-    margin: 5px 0 0 8px;
-    padding: 0;
-}
 
 .people .info li {
-    display: block;
     float: left;
-    padding: 2px 0px;
-    margin: 0 0px;
     clear: left;
     font-size: 12px;
 }
@@ -105,6 +100,19 @@ p.faq.question {
     display: block;
     float: left;
 }
+}
+
+.people .info ul {
+    margin: 5px 0 0 8px;
+    padding: 0;
+}
+
+.people .info li {
+    display: block;
+    padding: 2px 0px;
+    margin: 0 0px;
+}
+
 	footer {
 		clear: both;
 		text-align: center;
