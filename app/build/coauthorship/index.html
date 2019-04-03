@@ -176,7 +176,7 @@ Coauthorship Network
 
 			<h6>About the Coauthorship Visualization</h6>
 			<p>
-				Coauthorship network for a set of research papers in the fields of science communication and misinformation. Nodes represent authors, and weighted links represent collaborations between authors on research papers. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. The colors of the nodes are assigned based on the top level of the hierarichal clustering. The size of the nodes represent the flow-based rank of each node in this network. The connected component with ten nodes or more are shown. Click and drag the nodes to move them around.
+				Coauthorship network for a set of research papers in the fields of science communication and misinformation. Nodes represent authors, and weighted links represent collaborations between authors on research papers. Colors represent clusters of authors, and are meant to help identify which authors are closer together in the network. The size of the nodes represent the flow-based rank of each node in this network. The connected component with ten nodes or more are shown. Click and drag the nodes to move them around.
 			</p>
 			
 
@@ -185,6 +185,21 @@ Coauthorship Network
 
 		<div class="vis-methods mt-5">
 			
+			
+					
+<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
+	<h5>
+		Data and Methods
+	</h5>
+</a>
+<p class="collapse " id="methodsText">
+	
+					The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. (Note that this clustering is on the <em>author network</em>, which is different than the citation clustering in other visualizations.) The colors of the nodes are assigned based on the top level of the hierarchical clustering. The top authors in the network (based on the flow ranking assigned by Infomap) have text labels next to their nodes.
+					
+</p>
+
+
+				
 			
 				
 			
