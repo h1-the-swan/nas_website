@@ -70,9 +70,21 @@
 
 		</div>
 		<p>
-			Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.
+			{{ this_project.get('description') }}
 		</p>
 		<table id="extendedBibTable"></table>
+
+		<div class="vis-methods mt-5">
+			{% block vis_methods %}
+			{% if this_project.get('methods') %}
+					{% call collapsible(extra_classes='') %}
+					{{ this_project['methods']|safe }}
+					{% endcall %}
+				
+			{% endif %}
+				
+			{% endblock vis_methods %}
+		</div>
 
 
 		</main>
@@ -122,7 +134,7 @@ var data = Papa.parse(data_fname, {
 		}
 		$('#extendedBibTable').DataTable( {
 			data: results.data,
-			pageLength: 25,
+			pageLength: 10,
 			columns: columnConf
 		} );
 	}

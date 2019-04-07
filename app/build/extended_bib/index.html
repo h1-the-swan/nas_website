@@ -120,6 +120,28 @@
 		</p>
 		<table id="extendedBibTable"></table>
 
+		<div class="vis-methods mt-5">
+			
+			
+					
+<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
+	<h5>
+		Data and Methods
+	</h5>
+</a>
+<p class="collapse " id="methodsText">
+	
+					The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper's title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Extended Bibliography is presented as the top-ranked papers, after excluding any papers that were originally in the seed set.
+					
+</p>
+
+
+				
+			
+				
+			
+		</div>
+
 
 		</main>
 	</div>
@@ -180,7 +202,7 @@ var data = Papa.parse(data_fname, {
 		}
 		$('#extendedBibTable').DataTable( {
 			data: results.data,
-			pageLength: 25,
+			pageLength: 10,
 			columns: columnConf
 		} );
 	}

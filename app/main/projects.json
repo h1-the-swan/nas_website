@@ -31,7 +31,9 @@
 		"description_short": "The extended bibliography is generated automatically based on the seed papers used for this analysis. Please see “Data and Methods” for more details.",
 		"url": "/extended_bib",
 		"img": "book_stacks_thumb.jpg",
-		"img_alt": "Book stacks (image from https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)"
+		"img_alt": "Book stacks (image from https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)",
+		"description": "Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.",
+		"methods": "The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper's title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Extended Bibliography is presented as the top-ranked papers, after excluding any papers that were originally in the seed set."
 	},
 	{
 		"name": "Keyword Mapping",
