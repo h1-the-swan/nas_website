@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>misinformationresearch.org</title>
+<script type="text/javascript" charset="utf-8">
+	// Global variables:
+	var SCRIPT_ROOT = "";
+  var STATIC_FOLDER_ROOT = "/static";
+</script>
+		
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@4.2.1/themes/light-border.css" integrity="sha256-cpXbUNk+V/EXxqmcyU0BJe8eEFURwIYi+CTmJseXFwU=" crossorigin="anonymous">
+		<style>
+
+		.links line {
+			stroke: #999;
+			stroke-opacity: 0.6;
+		}
+
+		.nodes circle {
+			stroke: #fff;
+			stroke-width: 1.5px;
+		}
+
+		.nodes circle.highlight-secondary {
+			stroke: gray;
+			stroke-width: 1px;
+		}
+
+		.nodes circle.highlight-primary {
+			stroke: black;
+			stroke-width: 3px;
+		}
+
+		.links line.highlight-primary {
+			stroke: black;
+			stroke-width: 1px;
+		}
+
+		.node text {
+			pointer-events: none;
+			font: 10px sans-serif;
+		}
+
+		#nodelab-form {
+			visibility: hidden;
+		}
+
+		#tooltip-template {
+			display: none;
+		}
+
+		.paper_titles ul {
+			list-style: disc inside;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		.paper_titles li {
+			margin: 0;
+			padding: 0;
+		}
+
+		.tippy-tooltip.label-important-theme {
+			background-color: unset;
+			color: unset;
+			border: unset;
+			padding: unset;
+			border-radius: 0;
+			pointer-events: none;
+		}
+
+		.tippy-tooltip .paper_titles {
+			text-align: left;
+		}
+
+		.card {
+			font-size: .8rem;
+		}
+
+		.label-important-theme {
+			font-size: .75rem;
+		}
+
+		.row {
+			max-height: 800px;
+			overflow: scroll;
+			
+		}
+
+		#authors-card {
+			max-height: 1000px;
+			overflow: scroll;
+		}
+
+		#authors-card img {
+			width: 50px;
+		}
+
+		#authorsCardList li.focus-author {
+			font-weight: bold;
+		}
+		
+
+		</style>
+
+	</head>
+	<body>
+		
+	
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-8 card">
+					<h1>Coauthorship network</h1>
+					<div class="vis-description">
+						<p>
+							Coauthorship network for a cluster of authors. Nodes represent authors, and weighted links represent collaborations between authors on research papers. The size of the nodes represent the flow-based rank of each node in this network. Click and drag the nodes to move them around.
+						</p>
+					</div>
+					<div style="display: none;">
+						<input type="text" size="50" placeholder="Search author name or affiliation (at least 4 characters)" name="textSearch" id="textSearch"/>
+					</div>
+					<div style="display: none;">
+						<input type="checkbox" name="tooltipCheckbox" id="tooltipCheckbox" checked/>
+						<label for="tooltipCheckbox">Tooltips</label>
+					</div>
+					<form action="" id="nodelab-form">
+						<input type="radio" name="nodelab-radio" value="none" checked="checked">No node labels
+						<input type="radio" name="nodelab-radio" value="author_name">Show author name node labels
+						<input type="radio" name="nodelab-radio" value="affil_name">Show affiliation node labels
+					</form>
+
+					<div id="chartDiv"></div>
+					<div id="mapDiv"></div>
+					
+				</div>
+
+				<div id="authors-card" class="col-4 card">
+					<h2>Authors</h2>
+					<ol id="authorsCardList">
+					</ol>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+
+				<div id="author-card" class="col-8 card">
+					<h5 class="au-card-name">Author Name</h5>
+					<!-- <img src="" alt="author image (blank)" class="au&#45;card&#45;img" style="width: 80px;"/> -->
+					<!-- <p class="au&#45;card&#45;affil">Last Affiliation:</p> -->
+					<div class="au-card-concepts">
+						<ol></ol>
+					</div>
+					<div class="au-card-papers">
+						<ol></ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="tooltip-template">
+			<div class="author_name">
+				<h3 class="template-content"></h3>
+			</div>
+			<div class="affil_name">
+				<p>Affiliation: <span class="template-content"></span></p>
+			</div>
+			<div class="paper_titles">
+				<h5>Papers:</h5>
+				<ul class="template-content">
+				</ul>
+			</div>
+		</div>  <!-- tooltip-template -->
+
+
+
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/fuse/2.6.1/fuse.min.js"></script> -->
+		<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.1/svg.min.js"></script> -->
+		<!-- <script type="text/javascript" src="svg.screenbbox.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/d3@5.9.1/dist/d3.min.js" integrity="sha256-RtVUDWfx0vF5nrvHDYcQoWSPaOuQ0R8Rq9kUG2kSvH8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tippy.js@4.2.1/umd/index.all.min.js" integrity="sha256-88S1J91jsNFJA0k4SqGJyfvvjjZOOCCY2Ye0UdEdxlw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/static/scripts/nodelink_vis_coauthorship.js"></script>
+<script type="text/javascript" charset="utf-8">
+	var data_fname = "/static/data/coauthorship/science_communication_papers_plus_extended_relevant_coauthor.json";
+</script>
+<script type="text/javascript" src="/static/scripts/main_coauthorship_scicomm.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/app.bundle.js"></script>
+		
+		<div class="container">
+			<br>
+			<p>
+				This online, interactive report was created by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the National Academy of Sciences. Please <a href="mailto:jporteno+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools or other content.
+			</p>
+		
+		</div>
+
+		
+		
+		
+	</body>
+</html>

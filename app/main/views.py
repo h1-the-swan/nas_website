@@ -74,3 +74,8 @@ def nautilus_demo():
     this_project = projects[1]
     fname = url_for('static', filename="data/nautilus/nas2_mag_doi_join_network_fulldata_with_fos_names.json")
     return render_template('main/nautilus_demo.html', projects=projects, vis_type='nautilus', data_fname=fname, this_project=this_project)
+
+@main.route('/comm/')
+def coauthorship_scicomm():
+    fname = url_for('static', filename="data/coauthorship/science_communication_papers_plus_extended_relevant_coauthor.json")
+    return render_template('main/coauthorship_scicomm.html', data_fname=fname)
