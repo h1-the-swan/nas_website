@@ -38,6 +38,12 @@ def vis(vis_type):
         return redirect(url_for('main.index'))
     return render_template(template, projects=projects, vis_type=vis_type, data_fname=fname, this_project=this_project)
 
+@main.route('/methods/')
+def methods():
+    projects = get_projects(current_app)
+    this_project = get_this_project(projects, '/methods')
+    return render_template('main/methods.html', projects=projects, this_project=this_project)
+
 @main.route('/coauthorship/')
 def coauthorship_vis():
     # fname = url_for('static', filename="data/coauthorship/test_coauthorship_graph_combined_max600.json")

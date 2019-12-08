@@ -1,11 +1,11 @@
 [
 	{
 		"name": "Data, Methods and Analysis",
-		"description_short": "The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers.",
-		"url": "/",
-		"img": "5_word_minimum_thumb.png",
-		"img_alt": "Thumbnail image of the co-occurrence map",
-		"description": "<p>The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers. This is a static visualization (non-interactive).</p>"
+		"description_short": "",
+		"url": "/methods",
+		"img": "",
+		"img_alt": "",
+		"description": ""
 	},
 	{
 		"name": "Co-authorship maps",
@@ -39,7 +39,7 @@
 		"url": "/extended_bib",
 		"img": "book_stacks_thumb.jpg",
 		"img_alt": "Book stacks (image from https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)",
-		"description": "<p>Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.</p>",
-		"methods": "The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper's title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Extended Bibliography is presented as the top-ranked papers, after excluding any papers that were originally in the seed set."
+		"description": "<p>Using the seed papers as input, we trained a custom recommender to identify 1000 similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Automated Bibliography Page. Additional details about the data and methods are provided below. You can download the data directly using the button at the upper right portion of this page.</p>",
+		"methods": "<p>We use the seed papers and train an algorithm to find related papers. The idea is to find, automatically, other relevant papers in science communication and misinformation research. The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper’s title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Automated Bibliography is presented as the top-ranked papers by relevance, after excluding any papers that were originally in the seed set.</p>"
 	}
 ]

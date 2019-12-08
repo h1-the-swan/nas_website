@@ -70,20 +70,13 @@
 
 		</div>
 		<p>
-			{{ this_project.get('description') }}
+			{{ this_project.get('description')|safe }}
 		</p>
 		<table id="extendedBibTable"></table>
 
 		<div class="vis-methods mt-5">
-			{% block vis_methods %}
-			{% if this_project.get('methods') %}
-					{% call collapsible(extra_classes='') %}
-					{{ this_project['methods']|safe }}
-					{% endcall %}
-				
-			{% endif %}
-				
-			{% endblock vis_methods %}
+		<h3>About</h3>
+			{{ this_project['methods']|safe }}
 		</div>
 
 
@@ -99,21 +92,26 @@
 <script type="text/javascript" charset="utf-8">
 	var data_fname = "{{ data_fname }}"
 var columnsToShow = [
-	'rank',
+	// 'rank',
 	'Paper_ID',
-	'issn',
-	'isbn',
-	'doi',
+	// 'issn',
+	// 'isbn',
+	// 'doi',
 	'pub_date',
 	'title',
 	'title_source',
-	'title_source_abbrev',
+	// 'title_source_abbrev',
 	'subject_traditional',
-	'heading',
-	'subheading',
-	'pub_type',
+	// 'heading',
+	// 'subheading',
+	// 'pub_type',
 	// 'keyword',
 ];
+
+var columnsRename = {
+	"title_source": "journal",
+	"subject_traditional": "subject",
+}
 
 var data = Papa.parse(data_fname, {
 	download: true,
@@ -130,11 +128,19 @@ var data = Papa.parse(data_fname, {
 			} else {
 				var thisColumnVisible = false;
 			}
-			columnConf.push({ title: fields[i], data: fields[i], visible: thisColumnVisible });
+
+			// rename some columns
+			if (columnsRename.hasOwnProperty(fields[i])) {
+				var thisColumnTitle = columnsRename[fields[i]];
+			} else {
+				var thisColumnTitle = fields[i];
+			}
+
+			columnConf.push({ title: thisColumnTitle, data: fields[i], visible: thisColumnVisible });
 		}
-		$('#extendedBibTable').DataTable( {
+		var $dataTable = $('#extendedBibTable').DataTable( {
 			data: results.data,
-			pageLength: 10,
+			pageLength: 25,
 			columns: columnConf
 		} );
 	}

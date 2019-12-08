@@ -53,7 +53,7 @@
 
 					
 					<li class="nav-item">
-						<a class="nav-link" href="/">
+						<a class="nav-link" href="/methods">
 							Data, Methods and Analysis
 						</a>
 					</li>
@@ -122,30 +122,13 @@
 
 		</div>
 		<p>
-			&lt;p&gt;Using the seed papers (see Data and Methods) as input, we trained a custom recommender to identify similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Extended Bibliography.&lt;/p&gt;
+			<p>Using the seed papers as input, we trained a custom recommender to identify 1000 similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Automated Bibliography Page. Additional details about the data and methods are provided below. You can download the data directly using the button at the upper right portion of this page.</p>
 		</p>
 		<table id="extendedBibTable"></table>
 
 		<div class="vis-methods mt-5">
-			
-			
-					
-<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
-	<h5>
-		Data and Methods
-	</h5>
-</a>
-<p class="collapse " id="methodsText">
-	
-					The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper's title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Extended Bibliography is presented as the top-ranked papers, after excluding any papers that were originally in the seed set.
-					
-</p>
-
-
-				
-			
-				
-			
+		<h3>About</h3>
+			<p>We use the seed papers and train an algorithm to find related papers. The idea is to find, automatically, other relevant papers in science communication and misinformation research. The ranking task is set up as a supervised machine learning problem. A portion of the seed papers are set aside to be used to generate features, and the remaining are combined with a large set of candidate papers to create the total candidate set. This candidate set is split into train and test sets, and the process proceeds as a binary classification task, with the positive class being those papers that were originally among the seed papers. The features used include structural features of the citation network and textual features. The structural features include a measure of how close a paper tends to be to the set-aside seed papers (using the Infomap clustering algorithm), as well as the pagerank value of the paper (a citation-based measure of importance). The textual feature used was the average cosine similarity of the paper’s title (tf-idf weighted) to the titles of the set-aside seed papers. A random forest classifier was trained using these features, and the test papers were ranked according to the probability of the classifier. The overall process was repeated several times, and the probabilities were summed. The Automated Bibliography is presented as the top-ranked papers by relevance, after excluding any papers that were originally in the seed set.</p>
 		</div>
 
 
@@ -174,21 +157,26 @@
 <script type="text/javascript" charset="utf-8">
 	var data_fname = "/static/data/predictions_sciencecomm_and_misinfo_20190308.tsv"
 var columnsToShow = [
-	'rank',
+	// 'rank',
 	'Paper_ID',
-	'issn',
-	'isbn',
-	'doi',
+	// 'issn',
+	// 'isbn',
+	// 'doi',
 	'pub_date',
 	'title',
 	'title_source',
-	'title_source_abbrev',
+	// 'title_source_abbrev',
 	'subject_traditional',
-	'heading',
-	'subheading',
-	'pub_type',
+	// 'heading',
+	// 'subheading',
+	// 'pub_type',
 	// 'keyword',
 ];
+
+var columnsRename = {
+	"title_source": "journal",
+	"subject_traditional": "subject",
+}
 
 var data = Papa.parse(data_fname, {
 	download: true,
@@ -205,11 +193,19 @@ var data = Papa.parse(data_fname, {
 			} else {
 				var thisColumnVisible = false;
 			}
-			columnConf.push({ title: fields[i], data: fields[i], visible: thisColumnVisible });
+
+			// rename some columns
+			if (columnsRename.hasOwnProperty(fields[i])) {
+				var thisColumnTitle = columnsRename[fields[i]];
+			} else {
+				var thisColumnTitle = fields[i];
+			}
+
+			columnConf.push({ title: thisColumnTitle, data: fields[i], visible: thisColumnVisible });
 		}
-		$('#extendedBibTable').DataTable( {
+		var $dataTable = $('#extendedBibTable').DataTable( {
 			data: results.data,
-			pageLength: 10,
+			pageLength: 25,
 			columns: columnConf
 		} );
 	}

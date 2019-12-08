@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block custom_head_tags %}
+{% endblock custom_head_tags %}
+
+{% block main_content %}
+<h1>Data, Methods and Analysis</h1>
+
+<p>
+	Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then create maps of the emerging field and apply automated methods for finding related papers through citation links and word similarity. 
+</p>
+
+<p>
+	Some questions we want to address are:
+	<ul>
+		<li>What fields are producing papers in science communication and misinformation research? How are those fields connected through these papers?</li>
+		<li>What authors are working this space? Who is collaborating? And what authors are central to the research conversations?</li>
+		<li>What keywords and phrases are being used in this field? How do the fields connect through these commons phrases?</li>
+		<li>Can we automatically identify related papers in this research area, in order to expand our view of the research?</li>
+	</ul>
+</p>
+
+<p>
+	To begin our analysis, we used two bibliographies. The first set we call “Collection 1” (C1). This set consisted of papers in an Endnote library assembled by the National Academy. Details on how this Endnote library was constructed is provided below. The second set we call “Collection 2" (C2). This collection of papers comes from the <a href="https://www.nap.edu/catalog/23674/communicating-science-effectively-a-research-agenda", target="_blank">National Academy report on “Communicating Science Effectively: A Research Agenda”</a>. This report was published in 2017 and included many of the top scholars in the field of science communication. C1 focused more on misinformation research. C2 focused more generally on science communication. 
+</p>
+
+<p>
+	In parts of the analysis, we separate C1 and C2. We do this when separating the misinformation literature from the science communication literature. For most of the analysis, though, we combine C1 and C2. We call this combined set C3. For this report, we matched these titles to records in our database and in the Web of Science (WoS) and the Microsoft Academic Graph (MAG). For all matched papers, we extracted the titles and abstracts. For many of these records, we had to add bilbiographic data by hand given the difficulty in finding and matching records. 
+</p>
+
+<p>
+	The final seed set for C3 included 1,075 papers. There were 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There are 63 papers that existed in both C1 and C2. 
+</p>
+
+<p>
+	Click here [provide link] to download the list of publications in these seed collections.
+</p>
+
+
+<h3>Next Steps</h3>
+
+<p>What data is missing? Do the results make sense? Did you find “connectors”? What other bibliographic features should be added? What papers should not be in the set?</p>
+<p>These are all questions we are interested in exploring. Please send us feedback and we will update our data and results. We will continue to add more papers as we refine our automated bibliography methods.</p>
+	
+{% endblock main_content %}

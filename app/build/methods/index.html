@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>misinformationresearch.org</title>
+<script type="text/javascript" charset="utf-8">
+	// Global variables:
+	var SCRIPT_ROOT = "";
+  var STATIC_FOLDER_ROOT = "/static";
+</script>
+		<style type="text/css" media="screen">
+			body {
+				font-family: Arial !important;
+			}
+		</style>
+<link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
+		
+
+	</head>
+	<body>
+		
+<div class="container-fluid">
+	<div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						
+						<a class="nav-link" href="/">
+							<span data-feather="home"></span>
+							Home
+						</a>
+						
+					</li>
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/methods">
+							Data, Methods and Analysis <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/coauthorship">
+							Co-authorship maps
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/keyword_mapping">
+							Keyword Mapping
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/nautilus">
+							Nautilus Diagram — Citation Influence Visualization
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/extended_bib">
+							Automated Bibliography
+						</a>
+					</li>
+
+					
+					
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2"></h1>
+		</div>
+
+		
+<h1>Data, Methods and Analysis</h1>
+
+<p>
+	Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then create maps of the emerging field and apply automated methods for finding related papers through citation links and word similarity. 
+</p>
+
+<p>
+	Some questions we want to address are:
+	<ul>
+		<li>What fields are producing papers in science communication and misinformation research? How are those fields connected through these papers?</li>
+		<li>What authors are working this space? Who is collaborating? And what authors are central to the research conversations?</li>
+		<li>What keywords and phrases are being used in this field? How do the fields connect through these commons phrases?</li>
+		<li>Can we automatically identify related papers in this research area, in order to expand our view of the research?</li>
+	</ul>
+</p>
+
+<p>
+	To begin our analysis, we used two bibliographies. The first set we call “Collection 1” (C1). This set consisted of papers in an Endnote library assembled by the National Academy. Details on how this Endnote library was constructed is provided below. The second set we call “Collection 2" (C2). This collection of papers comes from the <a href="https://www.nap.edu/catalog/23674/communicating-science-effectively-a-research-agenda", target="_blank">National Academy report on “Communicating Science Effectively: A Research Agenda”</a>. This report was published in 2017 and included many of the top scholars in the field of science communication. C1 focused more on misinformation research. C2 focused more generally on science communication. 
+</p>
+
+<p>
+	In parts of the analysis, we separate C1 and C2. We do this when separating the misinformation literature from the science communication literature. For most of the analysis, though, we combine C1 and C2. We call this combined set C3. For this report, we matched these titles to records in our database and in the Web of Science (WoS) and the Microsoft Academic Graph (MAG). For all matched papers, we extracted the titles and abstracts. For many of these records, we had to add bilbiographic data by hand given the difficulty in finding and matching records. 
+</p>
+
+<p>
+	The final seed set for C3 included 1,075 papers. There were 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There are 63 papers that existed in both C1 and C2. 
+</p>
+
+<p>
+	Click here [provide link] to download the list of publications in these seed collections.
+</p>
+
+
+<h3>Next Steps</h3>
+
+<p>What data is missing? Do the results make sense? Did you find “connectors”? What other bibliographic features should be added? What papers should not be in the set?</p>
+<p>These are all questions we are interested in exploring. Please send us feedback and we will update our data and results. We will continue to add more papers as we refine our automated bibliography methods.</p>
+	
+
+
+
+		</main>
+	</div>
+</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/app.bundle.js"></script>
+		
+		<div class="container mb-5">
+			<br>
+			<h3>Contact Information</h3>
+			<p>
+				This online, interactive report was created by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the National Academy of Sciences. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools or other content.
+			</p>
+		
+		</div>
+
+		
+		
+		
+	</body>
+</html>
