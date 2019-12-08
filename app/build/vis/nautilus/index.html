@@ -14,6 +14,10 @@
 			body {
 				font-family: Arial !important;
 			}
+
+			h3 {
+				font-size: 1.5rem !important;
+			}
 		</style>
 <link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
 		
@@ -29,12 +33,6 @@
 <style type="text/css" media="screen">
 	#nautilus-loading {
 		margin: 5rem;
-	}
-
-	.citationVis-loading .vis-description,
-	.citationVis-loading .vis-methods
-	{
-		visibility: hidden;
 	}
 
 	.tooltipster-content .title {
@@ -126,7 +124,6 @@
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">
 Nautilus Diagram
-<a href="/vis/nautilus/about/" id="aboutLink"><button type="button" class="btn btn-primary ml-md-5">About</button></a>
 </h1>
 		</div>
 
@@ -148,10 +145,8 @@ Nautilus Diagram
 
 		<div class="vis-description mt-5">
 			
-<h6>About the Nautilus Diagram</h6>
-<p>
-	<p>The center node represents the set of papers identified as science communication and misinformation papers. Surrounding nodes represent influential papers that have cited those papers. Larger nodes represent more influential papers (ranked by <a href="http://www.eigenfactor.org/about.php" target="_blank">Eigenfactor score</a>). Links between nodes represent citations, either to a paper in the central collection, or to another paper in the displayed network (thicker lines represent more citations). Click on a node to view the paper (you may need to allow pop-ups for this).</p>
-</p>
+			<h5>About the Nautilus Diagram</h5>
+			<p>The Nautilus Diagram is an interactive visualization that focuses on citation influence outside a core field. The center node represents the set of 688 core papers identified as science communication and misinformation research. See <a href="../../methods">Data, Methods and Analysis</a> for more details. </p><p>The surrounding nodes represent influential papers italicize[outside these fields] that have cited the core papers. Larger nodes represent more influential papers (ranked by Eigenfactor score). Links between nodes represent citations, either to a paper in the central collection, or to another paper in the displayed network (thicker lines represent more citations). Click on a node to view the paper (you may need to allow pop-ups for this).</p><p>From this diagram, you see that papers in science communication and misinformation research are cited by important papers from many different fields from computer science to medicine. </p><p>The three line charts above show the number of papers over time for the core set of papers, the number of citations received by the cores set of papers, and the sum of the eigenfactor score for the core set by year. The eigenfactor score measures the influence of papers in a citation network using a similar approach to how Google’s PageRank score measures webpage influence. Larger nodes are generally cited more often, but also by other highly cited papers. </p><p>You can scroll over the years in the eigenfactor line chart to view the three most influential papers in each year. You can see several</p>
 <a href="/vis/nautilus/about/">Click here to learn more about the nautilus diagram.</a>
 
 
@@ -160,22 +155,10 @@ Nautilus Diagram
 		<div class="vis-methods mt-5">
 			
 			
-					
-<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
-	<h5>
-		Data and Methods
-	</h5>
-</a>
-<p class="collapse " id="methodsText">
-	
-					The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. Publications were assigned categories (colors) using K-Means—an unsupervised clustering technique that takes into account the publications' titles as well as Fields of Study keywords inferred by Microsoft's web crawlers. As the "number of citations" line chart indicates, there are typically more citing articles than can be displayed in the nautilus network, so only the top papers (by Eigenfactor) are shown there. Nodes closer to the center are citing publications with earlier publication dates; papers more distant from the center are more recent.
-					
-</p>
-
-
-				
+			<h3>Data and Methods</h3>
+			The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. Publications were assigned categories (colors) using K-Means—an unsupervised clustering technique that takes into account the publications' titles as well as Fields of Study keywords inferred by Microsoft's web crawlers. As the "number of citations" line chart indicates, there are typically more citing articles than can be displayed in the nautilus network, so only the top papers (by Eigenfactor) are shown there. Nodes closer to the center are citing publications with earlier publication dates; papers more distant from the center are more recent.
 			
-				
+
 			
 		</div>
 		

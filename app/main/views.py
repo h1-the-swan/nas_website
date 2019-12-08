@@ -60,7 +60,8 @@ def cluster_compare_vis():
 
 @main.route('/vis/nautilus/about/')
 def nautilus_about():
-    return render_template('main/nautilus_about.html')
+    projects = get_projects(current_app)
+    return render_template('main/nautilus_about.html', projects=projects, this_project={'name': 'Nautilus - About'})
 
 @main.route('/extended_bib/')
 def extended_bib():

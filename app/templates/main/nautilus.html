@@ -14,12 +14,6 @@
 		margin: 5rem;
 	}
 
-	.citationVis-loading .vis-description,
-	.citationVis-loading .vis-methods
-	{
-		visibility: hidden;
-	}
-
 	.tooltipster-content .title {
 		text-decoration: underline;
 		margin-bottom: 5px;
@@ -38,7 +32,6 @@
 
 {% block title %}
 Nautilus Diagram
-<a href="{{ url_for('main.nautilus_about') }}" id="aboutLink"><button type="button" class="btn btn-primary ml-md-5">About</button></a>
 {% endblock title %}
 
 {% block mainVisDiv_content %}
@@ -53,10 +46,8 @@ Nautilus Diagram
 {% endblock mainVisDiv_content %}
 
 {% block vis_description %}
-<h6>About the Nautilus Diagram</h6>
-<p>
-	{{ this_project['description']|safe }}
-</p>
+			<h5>About the Nautilus Diagram</h5>
+			{{ this_project['description']|safe }}
 <a href="{{ url_for('main.nautilus_about') }}">Click here to learn more about the nautilus diagram.</a>
 
 {% endblock vis_description %}

@@ -14,6 +14,10 @@
 			body {
 				font-family: Arial !important;
 			}
+
+			h3 {
+				font-size: 1.5rem !important;
+			}
 		</style>
 <link rel="stylesheet" href="/static/styles/dashboard.css" type="text/css" media="screen" charset="utf-8">
 		
@@ -145,7 +149,7 @@
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 			<h1 class="h2">
-Coauthorship Network
+Co-authorship Maps
 </h1>
 		</div>
 
@@ -185,22 +189,10 @@ Coauthorship Network
 		<div class="vis-methods mt-5">
 			
 			
-					
-<a data-toggle="collapse" class="methodsCollapseToggle" href="#methodsText" aria-expanded="false" aria-controls="methodsText">
-	<h5>
-		Data and Methods
-	</h5>
-</a>
-<p class="collapse " id="methodsText">
-	
-					The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. (Note that this clustering is on the <em>author network</em>, which is different than the citation clustering in other visualizations.) The colors of the nodes are assigned based on the top level of the hierarchical clustering. The authors with the highest network centrality scores are assigned have labels next to their nodes. Since this is just a sample, we caution readers on interpreting an "importance" of authors.
-					
-</p>
-
-
-				
+			<h3>Data and Methods</h3>
+			The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. (Note that this clustering is on the <em>author network</em>, which is different than the citation clustering in other visualizations.) The colors of the nodes are assigned based on the top level of the hierarchical clustering. The authors with the highest network centrality scores are assigned have labels next to their nodes. Since this is just a sample, we caution readers on interpreting an "importance" of authors.
 			
-				
+
 			
 		</div>
 		

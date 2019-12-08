@@ -26,12 +26,10 @@
 		<div class="vis-methods mt-5">
 			{% block vis_methods %}
 			{% if this_project.get('methods') %}
-					{% call collapsible(extra_classes='') %}
-					{{ this_project['methods']|safe }}
-					{% endcall %}
-				
+			<h3>Data and Methods</h3>
+			{{ this_project['methods']|safe }}
 			{% endif %}
-				
+
 			{% endblock vis_methods %}
 		</div>
 		

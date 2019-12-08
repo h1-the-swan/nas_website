@@ -25,7 +25,7 @@
 {# 	</div> #}
 {# {% endblock %} #}
 
-{% block content %}
+{% block main_content %}
 <main role="main" class="container">
 <div id="mainDiv">
 	<div class="header mb-5">
@@ -67,63 +67,7 @@
 	{# </section> #}
 
 
-	<hr style="width: 80%;"/>
 
-	<section class="people">
-	<a name="people"></a>
-		<h1>People</h1>
-		<div class="content">
-
-			<div class="person Jason">
-				<a class="anchor" id="jason"></a>
-				{# <img src="../static/img/jason_thumb.jpg" alt="Jason Portenoy" /> #}
-				<div class="info">
-					<ul>
-					<li><h4>Jason Portenoy</h4></li>
-					<li>PhD Student</li>
-					<li><a href="http://jasport.org/" target="_blank">Personal Website</a></li>
-					</ul>
-				</div>
-
-				<p>
-				Jason is a PhD candidate in the University of Washington Information School. He has a background in neuroscience and biomedical research, and currently studies data science and data visualization. He is a member of UW's <a href="https://datalab.ischool.uw.edu" target="_blank">DataLab</a>.
-				</p>
-			</div>
-
-			<div class="person Jevin">
-				{# <img src="../static/img/jevin_thumb.jpg" alt="Jevin West" /> #}
-				<div class="info">
-					<ul>
-					<li><h4>Jevin West</h4></li>
-					<li>Assistant Professor</li>
-					<li><a href="http://www.jevinwest.org/" target="_blank">Personal Website</a></li>
-					<li><a href="mailto:jevinw@uw.edu" target="_blank">jevinw@uw.edu</a></li>
-					<li>Phone: 206-543-2646</li>
-					</ul>
-				</div>
-
-				<p>
-				Jevin West is an Assistant Professor at the University of Washington Information School and a Data Science Fellow at the <a href="http://escience.washington.edu" target="_blank">eScience Institute</a>.  His research lies at the cross section of network science, knowledge organization and information visualization.  He co-directs the <a href="https://datalab.ischool.uw.edu" target="_blank">DataLab</a> at UW and is the co-founder of the <a href="http://eigenfactor.org/" target="_blank">Eigenfactor</a> project.  Prior to joining the faculty at UW, he was a postdoctoral fellow in the Department of Physics at Umea University in Sweden and received his PhD in Biology from UW.
-				</p>
-			</div>
-		</div>
-	</section>
-
-</div>
-
-<footer>
-	<hr style="width: 80%;"/>
-	<div id="datalab">
-		<a href="https://datalab.ischool.uw.edu/" target="_blank">
-			<img src="{{ url_for('static', filename='img/datalab-logo.png') }}" alt="University of Washington DataLab" />
-		</a>
-	</div>
-	<div id="ischool-logo">
-		<a href="https://ischool.uw.edu/" target="_blank">
-			<img src="{{ url_for('static', filename='img/ischool-logo.png') }}" alt="University of Washington Information School" />
-		</a>
-</div>
-</footer>
 
 <script>
 	// https://css-tricks.com/snippets/javascript/get-url-variables/
