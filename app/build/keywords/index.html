@@ -38,8 +38,28 @@
 
 					
 					<li class="nav-item">
+						<a class="nav-link" href="/">
+							Data, Methods and Analysis
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
 						<a class="nav-link" href="/vis/coauthorship">
-							Coauthorship Visualization
+							Co-authorship maps
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/vis/keyword_mapping">
+							Keyword Mapping <span class="sr-only">(current)</span>
 						</a>
 					</li>
 
@@ -58,28 +78,8 @@
 
 					
 					<li class="nav-item">
-						<a class="nav-link" href="/vis/cluster_compare">
-							Cluster Comparison Network
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
 						<a class="nav-link" href="/extended_bib">
-							Extended Bibliography
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link active" href="/vis/keyword_mapping">
-							Keyword Mapping <span class="sr-only">(current)</span>
+							Automated Bibliography
 						</a>
 					</li>
 
@@ -100,7 +100,15 @@
 
 		<div id="mainVis">
 			
-<img src="/static/img/5_word_minimum.png" alt=""/>
+<div class="mb-5">
+	<p>Keywords that appear in at least 5 papers from both paper sets (science communication and misinformation):</p>
+	<img src="/static/img/5_word_minimum.png" alt=""/>
+</div>
+
+<div>
+	<p>Keywords from science communication including relevant papers found using the Automated Bibliography:</p>
+	<img src="/static/img/vosviewer_topic_map_science_communication_plus_extended_relevant_20191024.png" alt=""/>
+</div>
 	
 
 		</div>
@@ -110,9 +118,7 @@
 			
 
 			<h5>About the Keyword Mapping</h5>
-			<p>
-				The map shows the co-occurrence of keywords extracted from the titles and abstracts of the seed set. The map only shows keywords that appear in at least 5 papers. This is a static visualization (non-interactive).
-			</p>
+			<p>The keyword maps are similar to the co-authorship maps. Instead of authors as nodes, keywords of papers are the nodes. The keywords are pulled from the titles and abstracts of the papers in our datasets. The keyword maps were created using <a href="https://www.vosviewer.com/" target="_blank">VOSviewer</a>. </p><p>The map above only shows keywords that appear in at least 5 papers from both paper sets. The map below only includes papers from science communication. We used default values for the bottom image. This included keyword from titles and abstracts, binary counting, a minimum of 10 occurrences of a term, and 60% most relevant terms (based on a calculated relevance score). Both maps are static and not interactive like the co-authorship graphs. </p><p>The two maps contain many of the same clusters. The primary difference is the large climate change cluster in the second map.</p>
 			
 
 			

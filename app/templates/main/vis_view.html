@@ -17,9 +17,7 @@
 			{% if this_project.get('description') %}
 
 			<h5>About the {{ this_project['name'] }}</h5>
-			<p>
-				{{ this_project['description']|safe }}
-			</p>
+			{{ this_project['description']|safe }}
 			{% endif %}
 
 			{% endblock vis_description %}

@@ -8,6 +8,12 @@ def get_projects(app, projects_fname='main/projects.json'):
         projects = json.load(f)
     return projects
 
+def get_this_project(projects, this_project_url):
+    for project in projects:
+        if project['url'] == this_project_url:
+            return project
+    return {}
+
 @main.route('/')
 def index():
     projects = get_projects(current_app)
@@ -16,19 +22,16 @@ def index():
 @main.route('/vis/<vis_type>/')
 def vis(vis_type):
     projects = get_projects(current_app)
+    this_project = get_this_project(projects, '/vis/' + vis_type)
     template = 'main/' + vis_type + '.html'
     if vis_type == 'coauthorship':
         fname = url_for('static', filename="data/coauthorship/test_coauthorship_graph_combined_max600.json")
-        this_project = projects[0]
     elif vis_type == 'nautilus':
         fname = url_for('static', filename="data/nautilus/nas2_mag_doi_join_network_fulldata_with_fos_names.json")
-        this_project = projects[1]
     elif vis_type == 'cluster_compare':
         fname = url_for('static', filename="data/cluster_compare/cluster_compare_science_communication_and_misinformation.json")
-        this_project = projects[2]
     elif vis_type == 'keyword_mapping':
         fname = ""
-        this_project = projects[4]
     else:
         # TODO
         fname = ""
@@ -56,7 +59,7 @@ def nautilus_about():
 @main.route('/extended_bib/')
 def extended_bib():
     projects = get_projects(current_app)
-    this_project = projects[3]
+    this_project = get_this_project(projects, '/extended_bib')
     fname = url_for('static', filename='data/predictions_sciencecomm_and_misinfo_20190308.tsv')
     download_fnames = [
             {'desc': 'Excel format (xlsx)', 'fname': url_for('static', filename='data/predictions_sciencecomm_and_misinfo_20190308.xlsx')},

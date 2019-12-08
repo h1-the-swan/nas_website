@@ -92,8 +92,28 @@
 
 					
 					<li class="nav-item">
+						<a class="nav-link" href="/">
+							Data, Methods and Analysis
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
 						<a class="nav-link active" href="/vis/coauthorship">
-							Coauthorship Visualization <span class="sr-only">(current)</span>
+							Co-authorship maps <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/vis/keyword_mapping">
+							Keyword Mapping
 						</a>
 					</li>
 
@@ -112,28 +132,8 @@
 
 					
 					<li class="nav-item">
-						<a class="nav-link" href="/vis/cluster_compare">
-							Cluster Comparison Network
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
 						<a class="nav-link" href="/extended_bib">
-							Extended Bibliography
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link" href="/vis/keyword_mapping">
-							Keyword Mapping
+							Automated Bibliography
 						</a>
 					</li>
 
@@ -175,10 +175,8 @@ Coauthorship Network
 			
 			
 
-			<h5>About the Coauthorship Visualization</h5>
-			<p>
-				Coauthorship network for a set of research papers in the fields of science communication and misinformation. Nodes represent authors, and weighted links represent collaborations between authors on research papers. Colors represent clusters of authors, and are meant to help identify which authors are closer together in the network. The size of the nodes represent the flow-based rank of each node in this network. The connected component with ten nodes or more are shown. Click and drag the nodes to move them around.
-			</p>
+			<h5>About the Co-authorship maps</h5>
+			<p>Co-authorship maps show the social structure of a field. A node in this graph is an author. The size of the nodes represents the papers represented in our data set for each author. Since the datasets are samples, we caution against reading these nodes sizes as importance measures. A link represents a shared paper. The links are weighted so that thicker lines are scaled to the number of shared papers between authors. </p><p>We provide two co-authorship graphs — one that includes research papers from science communication and misinformation research. Colors represent clusters of authors. They are meant to help identify which authors are closer together in the network. The connected components with ten nodes or more are shown. Again, we do not include all papers ever published around these topics. Therefore, we are only seeing a part of the field. Many papers and authors are not represented that may be in subsequent updates. </p><p>To use the visualization, click and drag the nodes to move them around. If you hover over an author name in the network, you will see the papers with the highest centrality scores in our dataset. We use a pagerank-based metric to assess influence. This is similar to how Google ranks webpages. </p>
 			
 
 			
@@ -195,7 +193,7 @@ Coauthorship Network
 </a>
 <p class="collapse " id="methodsText">
 	
-					The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. (Note that this clustering is on the <em>author network</em>, which is different than the citation clustering in other visualizations.) The colors of the nodes are assigned based on the top level of the hierarchical clustering. The top authors in the network (based on the flow ranking assigned by Infomap) have text labels next to their nodes.
+					The data for this visualization come from the <a href="https://www.microsoft.com/en-us/research/project/microsoft-academic-graph/" target="_blank">Microsoft Academic Graph</a>, a dataset that uses web crawlers to find and link academic publications. Publications from the seed collections (Collections 1 and 2) were linked to this dataset using Document Object Identifiers (DOI) and fuzzy title matching. The network was clustered using <a href="http://www.mapequation.org/" target="_blank">Infomap</a>. (Note that this clustering is on the <em>author network</em>, which is different than the citation clustering in other visualizations.) The colors of the nodes are assigned based on the top level of the hierarchical clustering. The authors with the highest network centrality scores are assigned have labels next to their nodes. Since this is just a sample, we caution readers on interpreting an "importance" of authors.
 					
 </p>
 

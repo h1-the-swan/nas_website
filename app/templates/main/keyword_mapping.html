@@ -5,6 +5,14 @@
 {% endblock title %}
 
 {% block mainVisDiv_content %}
-<img src="{{ url_for('static', filename='img/5_word_minimum.png') }}" alt=""/>
+<div class="mb-5">
+	<p>Keywords that appear in at least 5 papers from both paper sets (science communication and misinformation):</p>
+	<img src="{{ url_for('static', filename='img/5_word_minimum.png') }}" alt=""/>
+</div>
+
+<div>
+	<p>Keywords from science communication including relevant papers found using the Automated Bibliography:</p>
+	<img src="{{ url_for('static', filename='img/vosviewer_topic_map_science_communication_plus_extended_relevant_20191024.png') }}" alt=""/>
+</div>
 	
 {% endblock mainVisDiv_content %}
