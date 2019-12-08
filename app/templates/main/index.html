@@ -7,6 +7,14 @@
 		{# 	background-repeat: no-repeat; #}
 		{# 	background-size: cover; #}
 		{# } #}
+	h1 {
+		text-align: center;
+	}
+
+	img {
+		margin: auto;
+	}
+
 	.projects .img-thumbnail {
 		border-radius: 25px;
 	}
@@ -14,7 +22,7 @@
 	</style>
 {% endblock custom_head_tags %}
 
-{% block content %}
+{% block main_content %}
 {# <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> #}
 {# 	<a class="navbar-brand" href="#">Navbar</a> #}
 {# 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> #}
@@ -48,60 +56,22 @@
 {# 	</div> #}
 {# </nav> #}
 
-<main role="main" class="container">
+{# <main role="main" class="container"> #}
 
 <div>
-	<h1>Mapping Science Communication and Misinformation</h1>
+	<h1>Mapping <span style="color: #c53932;">Misinformation</span> and <span style="color: #3977af;">Science Communication</span> Research</h1>
+	<img class="img w-70 d-block" src="{{ url_for('static', filename='img/coauthorship_static.png') }}" alt="Static image of a coauthorship network"/>
+	<h3>Background</h3>
 <p class="intro-text lead">
 	Over the last decade, the world has seen a rise in misinformation. The World Economic Forum identified this rise as an existential threat to society, on par with terrorism, cyberwarfare, and global governance failure. Most of the attention has centered on misinformation about politics, government propaganda and festering conspiracy theories. Relatively less attention has been given to misinformation in, and about, science. Misappropriated nutritional advice spreads virally in the news and on social media, measles outbreaks due to lowering vaccination rates are creating states of emergencies in the U.S., predatory journals are fooling both the public and researchers themselves, and videos promoting the flat earth theory are commonly recommended on YouTube. The goal of this interactive report is to shed light on who is working on this topic of science misinformation and how this emerging, interdisciplinary domain connects across the disciplinary landscape. The research draws heavily from science communication research, as one would expect, but the researchers come from psychology, education, science and technology studies, journalism, computer science, and others. Using bibliographic maps, we examine the state of the field through interactive visualizations, co-authorship graphs, and keyword analysis. This represents preliminary, exploratory work in a rapidly changing field, and we plan to update the data as new papers and trends emerge.
 </p>	
 {# <a href="{{ url_for('static', filename='img/map1.png') }}" target="_blank"><img src="{{ url_for('static', filename='img/map1.png') }}" alt="Screenshot of the Interactive Coauthorship Network Visualization"/></a> #}
 </div>
 
-<div class="section projects" id="projects">
-	<div class="container">
 
+{# </main><!-- /.container --> #}
 
-		{% for project in projects %}
-
-		<div class="card my-4 row project">
-			<div class="card-body col-md-12">
-				<div class="project-link project-name p-0 float-md-left col-md">
-					<a href="{{ project['url'] }}">
-						<h5>{{ project['name'] }}</h5>
-					</a>
-				</div>
-				{% if project.get('img') and project['img'] != 'TODO' %}
-				<div class="pl-md-5 float-md-right col-md-3 d-flex justify-content-sm-center">
-					<a href="{{ project['url'] }}">
-						<img class="img-thumbnail border-0" src="{{ url_for('static', filename='img/'+project['img']) }}" alt="{{ project['img_alt'] }}"/>
-					</a>
-				</div>
-				{% endif %}
-				<div class="card-text project-description text-justify">
-					<p>{{ project['description_short'] }}</p>
-				</div>
-			</div>
-		</div>
-
-		{% endfor %}
-
-		<div class="card my-4 row project">
-			<div class="card-body">
-				<div class="project link">
-					{% call collapsible(extra_classes='project description') %}
-						Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then apply automated methods for finding related papers through citation links and word similarity. To begin our analysis, we used two bibliographies. The first set we call “Collection 1” (C1). This set consisted of papers in an Endnote library assembled by the National Academy. Details on how this Endnote library was constructed is provided in further documentation. The second set we call “Collection 2" (C2). This collection of papers comes from the National Academy report on “Communicating Science Effectively: A Research Agenda.” This report was published in 2017 and included many of the top scholars in the field of science communication. C1 focused more on misinformation research. C2 focused more generally on science communication. In parts of the analysis, we separate C1 and C2. We do this when separating the misinformation literature from the science communication literature. For most of the analysis, though, we combine C1 and C2. We call this combined set C3. For this report, we have extracted the titles from the Endnote library and from the National Academy report. We matched these titles to records in the Web of Science (WoS) and added additional metadata to records missing information. For many of these records, we had to fill in data by hand. Some tasks can be automated. The final seed set for C3 included 1,075 papers. There 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There are 63 papers that existed in both C1 and C2. <a href="{{ url_for('static', filename='data/seed_papers-science_communication_and_misinformation.zip') }}">Click here to download the list of publications in these seed collections.</a>
-					{% endcall %}
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-</main><!-- /.container -->
-
-{% endblock content %}
+{% endblock main_content %}
 
 {% block footer_endcontent %}
 <p>

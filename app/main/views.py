@@ -11,7 +11,7 @@ def get_projects(app, projects_fname='main/projects.json'):
 @main.route('/')
 def index():
     projects = get_projects(current_app)
-    return render_template('main/index.html', projects=projects)
+    return render_template('main/index.html', projects=projects, this_project={'name': 'Home'})
 
 @main.route('/vis/<vis_type>/')
 def vis(vis_type):
