@@ -34,6 +34,15 @@
 		<p>
 			{{ this_project.get('description')|safe }}
 		</p>
+
+		{% if ds==0 %}
+		<p>Below are the papers that this method identified as being related to the seed papers in science communication and misinformation. To view the papers related to science communication only, <a href="{{ url_for('main.extended_bib1') }}">click here</a>.</p>
+
+		{% elif ds==1 %}
+		<p>Below are the papers that are in the science communication seed set, as well as the additional papers this method identified as being related to this seed set (and marked as relevant by domain experts at NAS) To view the papers related to both science communication and misinformation, <a href="{{ url_for('main.extended_bib') }}">click here</a>.</p>
+
+		{% endif %}
+
 		<table id="extendedBibTable"></table>
 
 		<div class="vis-methods mt-5">
