@@ -27,9 +27,15 @@
 		
 <div class="container-fluid">
 	<div class="row">
+
+		
+			<a class="mobile-homelink d-md-none" href="/">Home</a>
+		
+
 		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
+					<p class="nav-text">misinformationresearch.org</p>
 					<li class="nav-item">
 						
 						<a class="nav-link" href="/">
@@ -38,26 +44,6 @@
 						</a>
 						
 					</li>
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link active" href="/methods">
-							Data, Methods and Analysis <span class="sr-only">(current)</span>
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link" href="/extended_bib">
-							Automated Bibliography
-						</a>
-					</li>
-
-					
 					
 
 					
@@ -73,7 +59,7 @@
 					
 					<li class="nav-item">
 						<a class="nav-link" href="/vis/keyword_mapping">
-							Keyword Mapping
+							Keyword Maps
 						</a>
 					</li>
 
@@ -89,12 +75,32 @@
 
 					
 					
+
+					
+					<li class="nav-item">
+						<a class="nav-link active" href="/methods">
+							Data and Methods <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/extended_bib">
+							Automated Bibliography
+						</a>
+					</li>
+
+					
+					
 			</div>
 		</nav>
 
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2">Data, Methods and Analysis</h1>
+			<h1 class="h2">Data and Methods</h1>
 		</div>
 
 		
@@ -122,7 +128,36 @@
 </p>
 
 <p>
-	The final seed set for C3 included 1,075 papers. There were 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There are 63 papers that existed in both C1 and C2. 
+	The final seed set for C3 included 1,075 papers. There were 840 records extracted from the Endnote library (C1). There were 298 records extracted from the National Academy review of science communication (C2). There are 63 papers that existed in both C1 and C2. The details of the data collection are as follows:
+</p>
+
+<p>
+	NAS bibliography on misinformation (C1)
+	<ul>
+		<li>1,918 references based on search criteria</li>
+		<li>Matched 840 papers with WoS IDs</li>
+		<li>Non-matches included recent papers (2018), papers from other databases, etc. </li>
+	</ul>
+
+	NAS report on science communication (C2)
+	<ul>
+		<li>Extracted 428 references from 23 pages of (unstructured) references</li>
+		<li>Matched 330 papers with DOIs</li>
+		<li>Matched 298 papers with WoS IDs</li>
+		<li>Non-matches include books, reports, etc.</li>
+	</ul>
+
+	Total matches with WoS IDs for SEED SET:  1,075 papers
+	<ul>
+		<li>298 papers from C1; 840 papers from C2</li>
+		<li>63 papers in both C1 and C2</li>
+		<li>Citations to/from this core set</li>
+	</ul>
+
+</p>
+
+<p>
+	Additional details on the inclusion and exclusion criteria for the seed sets can be found in <a href="/static/docs/seed_set_details.pdf" target="_blank">this document</a>. This also includes tables of most cited papers and venues represented in this set.
 </p>
 
 <p>
@@ -143,6 +178,7 @@
 		
 			<br>
 			<hr>
+		
 			<h3>Contact</h3>
 			<p>
 				Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools, data or other content.

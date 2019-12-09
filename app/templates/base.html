@@ -19,9 +19,15 @@
 		{% block content %}
 <div class="container-fluid">
 	<div class="row">
+
+		{% if this_project['name'] != 'Home' %}
+			<a class="mobile-homelink d-md-none" href="{{ url_for('main.index') }}">Home</a>
+		{% endif %}
+
 		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
+					<p class="nav-text">misinformationresearch.org</p>
 					<li class="nav-item">
 						{% if this_project['name'] == 'Home' %}
 						<a class="nav-link active" href="{{ url_for('main.index') }}">
@@ -69,6 +75,7 @@
 		{% block footer %}
 			<br>
 			<hr>
+		{% block footer_begincontent %}{% endblock %}
 			<h3>Contact</h3>
 			<p>
 				Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools, data or other content.

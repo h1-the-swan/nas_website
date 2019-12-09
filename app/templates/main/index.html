@@ -74,27 +74,17 @@ Mapping Misinformation and Science Communication Research
 		We focus on two areas of research for this project: science communication and misinformation research. We chose these two areas based on a talk series sponsored by the National Academy of Sciences around misinformation and science communication. Clearly, there is strong overlap between science communication and the topic of science misinformation. This is why we brought them together. For some of the maps, we combine the two. In other areas, we focus primarily on science communication. We note this for each of the tools.
 	</p>
 	<p>
+		Again, we stress that this is a preliminary analysis and does not represent all papers in science communication or misinformation research. We will update as the data becomes available. 
+	</p>
+	<p>
 		Below we provide a summary of each of the tools. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments. 
 	</p>	
 </div>
 
 <div>
-	<h5>About</h5>
-	<p>
-		The project was developed by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the <a href="http://www.nasonline.org/" target="_blank">National Academy of Sciences</a>. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools, data or other content. Misinformationresearch.org was created using Python <a href="http://flask.pocoo.org/" target="_blank">Flask</a>. Interactive visualizations use <a href="https://d3js.org/" target="_blank">D3</a>. The source code for this website is available <a href="https://github.com/h1-the-swan/nas_website" target="_blank">here</a>.
-	</p>
-</div>
-
-<div>
 	<h5>Data, Tools and Maps</h5>
 	<p>
-		There are five sections listed in the navigation for this site: "Data, Methods, And Analysis," "Automated Bibliography," "Co-authorship Maps," "Keyword Maps," and "Nautilus Diagram". Each is explained briefly below. More details can be found by clicking through to each page.
-	</p>
-	<p>
-		The <a href="{{ url_for('main.methods') }}">Data, Methods, and Analysis</a> provides information about our seed sets, the methods we used to map and generate new papers, and some basic analysis of the raw data. The seed set is approximately 1000 papers. We expand this set (see "Automated Bibliography"). We make all the publication data generated for this project easily available through a direct download or through interactive tools and maps. 
-	</p>
-	<p>
-		The <a href="{{ url_for('main.extended_bib') }}">Automated Bibliography</a> is a tool we developed to automatically identify related papers around a given topic. The method is described in <a href="http://ceur-ws.org/Vol-2414/paper8.pdf" target="_blank">this publication</a>, and the code is available <a href="https://github.com/h1-the-swan/autoreview" target="_blank">here</a>. The method starts with a seed set of papers. In this case, the seed set is the reference list of a National Academy report and an initial search query of research papers on the topic of misinformation. We can then crawl the citation network of this seed set and identify papers that are similar using a supervised machine learning model. We provide two automated bibliographies: one that includes 1000 related papers in the research area that spans both science communication and misinformation research, and another that provides 1000 related papers in science communication only. We can add more papers if requested. 
+		There are five sections listed in the navigation for this site: "Data and Methods," "Automated Bibliography," "Co-authorship Maps," "Keyword Maps," and "Nautilus Diagram". Each is explained briefly below. More details can be found by clicking through to each page.
 	</p>
 	<p>
 		The <a href="{{ url_for('main.vis', vis_type='coauthorship') }}">Co-authorship Maps</a> provides an interactive map to explore the authors and social structure of these emerging fields. In this network, the nodes represent authors and the links represent shared publications. If an author shares many publications with another author, the link will be thicker. This provides an overview of the field based on these author relationships. We provide two papers: one with science communication and misinformation together and another with science communication research only. You can scroll over the authors to see representative papers by each author. In the version of just science communication, you can search the authors either in the map or the author table on the right-side of the screen. We caution against making too strong an inference of author influence since the data is only a sample from the literature. 
@@ -103,7 +93,13 @@ Mapping Misinformation and Science Communication Research
 		The <a href="{{ url_for('main.vis', vis_type='keyword_mapping') }}">Keyword Maps</a> creates similar maps as the Co-authorship Maps, but instead of nodes being authors, the nodes are keywords extracted from the titles and abstracts of the papers in our data set. We create two maps: one for science communication and misinformation research combined and one for science communication only. We provide details on the cutoffs and requirements for keywords on the "Keyword Maps" page.
 	</p>
 	<p>
-		The <a href="{{ url_for('main.vis', vis_type='nautilus') }}">Nautilus Diagram</a> is an interactive visualization tool for evaluating the influence of a field's work outside that field. In other words, we look at the important papers in other fields that are citing our field of focus — in this case, the field of science communication and misinformation research. The center node in this nautilus diagram represents the seed papers in the field of science communication and misinformation research. The outside (colored) nodes represent important papers over time. The more inner nodes are papers from the more distant past and the outer nodes are papers more recently published. The size of the node represents influence measured by citation network measures. The colors represent fields of study. We also provide basic paper and citation counts of the field of focus below the diagram. More details can be found on the webpage that displays the nautilus diagram. 
+		The <a href="{{ url_for('main.vis', vis_type='nautilus') }}">Nautilus Diagram</a> is an interactive visualization tool for evaluating the influence of a field's work outside that field. In other words, we look at the important papers in other fields that are citing our field of focus — in this case, the field of science communication and misinformation research. The center node in this nautilus diagram represents the seed papers in the field of science communication and misinformation research. The outside (colored) nodes represent important papers over time. The more inner nodes are papers from the more distant past and the outer nodes are papers more recently published. The size of the node represents influence measured by citation network measures. The colors represent fields of study. We also provide basic paper and citation counts of the field of focus below the diagram. More details can be found on the webpage that displays the nautilus diagram. (Please note that the nautilus diagram can take up to a minute to load.)
+	</p>
+	<p>
+		The <a href="{{ url_for('main.methods') }}">Data and Methods</a> provides information about our seed sets, and the methods we used to map and generate new papers. The seed set is approximately 1000 papers. We expand this set (see "Automated Bibliography"). We make all the publication data generated for this project easily available through a direct download or through interactive tools and maps. 
+	</p>
+	<p>
+		The <a href="{{ url_for('main.extended_bib') }}">Automated Bibliography</a> is a tool we developed to automatically identify related papers around a given topic. The method is described in <a href="http://ceur-ws.org/Vol-2414/paper8.pdf" target="_blank">this publication</a>, and the code is available <a href="https://github.com/h1-the-swan/autoreview" target="_blank">here</a>. The method starts with a seed set of papers. In this case, the seed set is the reference list of a National Academy report and an initial search query of research papers on the topic of misinformation. We can then crawl the citation network of this seed set and identify papers that are similar using a supervised machine learning model. We provide two automated bibliographies: one that includes 100 related papers in the research area that spans both science communication and misinformation research, and another that provides 1000 related papers in science communication only. We can add more papers if requested. 
 	</p>
 </div>
 
@@ -111,9 +107,14 @@ Mapping Misinformation and Science Communication Research
 
 {% endblock main_content %}
 
-{% block footer_endcontent %}
+{% block footer_begincontent %}
 	
-{% endblock footer_endcontent %}
+<div>
+		This project was developed by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the <a href="http://www.nasonline.org/" target="_blank">National Academy of Sciences</a>. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools, data or other content. Misinformationresearch.org was created using Python <a href="http://flask.pocoo.org/" target="_blank">Flask</a>. Interactive visualizations use <a href="https://d3js.org/" target="_blank">D3</a>. The source code for this website is available <a href="https://github.com/h1-the-swan/nas_website" target="_blank">here</a>.
+	</p>
+</div>
+
+{% endblock footer_begincontent %}
 
 {% block endbody_tags %}
 <script type="text/javascript" src="{{ url_for('static', filename='index.bundle.js') }}"></script>

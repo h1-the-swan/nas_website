@@ -55,9 +55,15 @@
 		
 <div class="container-fluid">
 	<div class="row">
+
+		
+			<a class="mobile-homelink d-md-none" href="/">Home</a>
+		
+
 		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
+					<p class="nav-text">misinformationresearch.org</p>
 					<li class="nav-item">
 						
 						<a class="nav-link" href="/">
@@ -66,26 +72,6 @@
 						</a>
 						
 					</li>
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link" href="/methods">
-							Data, Methods and Analysis
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link" href="/extended_bib">
-							Automated Bibliography
-						</a>
-					</li>
-
-					
 					
 
 					
@@ -101,7 +87,7 @@
 					
 					<li class="nav-item">
 						<a class="nav-link" href="/vis/keyword_mapping">
-							Keyword Mapping
+							Keyword Maps
 						</a>
 					</li>
 
@@ -112,6 +98,26 @@
 					<li class="nav-item">
 						<a class="nav-link active" href="/vis/nautilus">
 							Nautilus Diagram <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/methods">
+							Data and Methods
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/extended_bib">
+							Automated Bibliography
 						</a>
 					</li>
 
@@ -146,7 +152,7 @@ Nautilus Diagram
 		<div class="vis-description mt-5">
 			
 			<h5>About the Nautilus Diagram</h5>
-			<p>The Nautilus Diagram is an interactive visualization that focuses on citation influence outside a core field. The center node represents the set of 688 core papers identified as science communication and misinformation research. See <a href="../../methods">Data, Methods and Analysis</a> for more details. </p><p>The surrounding nodes represent influential papers italicize[outside these fields] that have cited the core papers. Larger nodes represent more influential papers (ranked by Eigenfactor score). Links between nodes represent citations, either to a paper in the central collection, or to another paper in the displayed network (thicker lines represent more citations). Click on a node to view the paper (you may need to allow pop-ups for this).</p><p>From this diagram, you see that papers in science communication and misinformation research are cited by important papers from many different fields from computer science to medicine. </p><p>The three line charts above show the number of papers over time for the core set of papers, the number of citations received by the cores set of papers, and the sum of the eigenfactor score for the core set by year. The eigenfactor score measures the influence of papers in a citation network using a similar approach to how Google’s PageRank score measures webpage influence. Larger nodes are generally cited more often, but also by other highly cited papers. </p><p>You can scroll over the years in the eigenfactor line chart to view the three most influential papers in each year. You can see several</p>
+			<p>The Nautilus Diagram is an interactive visualization that focuses on citation influence outside a core field. The center node represents the set of 688 core papers identified as science communication and misinformation research. See <a href="../../methods">Data and Methods</a> for more details. </p><p>The surrounding nodes represent influential papers <em>outside these fields</em> that have cited the core papers. Larger nodes represent more influential papers (ranked by Eigenfactor score). Links between nodes represent citations, either to a paper in the central collection, or to another paper in the displayed network (thicker lines represent more citations). Click on a node to view the paper (you may need to allow pop-ups for this).</p><p>From this diagram, you see that papers in science communication and misinformation research are cited by important papers from many different fields from computer science to medicine. </p><p>The three line charts above show the number of papers over time for the core set of papers, the number of citations received by the cores set of papers, and the sum of the eigenfactor score for the core set by year. The eigenfactor score measures the influence of papers in a citation network using a similar approach to how Google’s PageRank score measures webpage influence. Larger nodes are generally cited more often, but also by other highly cited papers. </p><p>You can scroll over the years in the eigenfactor line chart to view the three most influential papers in each year. Influence is determined by the paper-level Eigenfactor score, which uses the citation network to assess influence.</p><p>Please note that the nautilus diagram can take up to a minute to load.</p>
 <a href="/vis/nautilus/about/">Click here to learn more about the nautilus diagram.</a>
 
 
@@ -170,6 +176,7 @@ Nautilus Diagram
 		
 			<br>
 			<hr>
+		
 			<h3>Contact</h3>
 			<p>
 				Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools, data or other content.
