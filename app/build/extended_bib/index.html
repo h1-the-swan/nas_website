@@ -31,27 +31,19 @@
 
 	</head>
 	<body>
-			
-
-	
-	
-	
 		
-			
-			
-		
-	
-
 <div class="container-fluid">
 	<div class="row">
 		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 			<div class="sidebar-sticky">
 				<ul class="nav flex-column">
 					<li class="nav-item">
+						
 						<a class="nav-link" href="/">
 							<span data-feather="home"></span>
 							Home
 						</a>
+						
 					</li>
 					
 
@@ -67,8 +59,18 @@
 
 					
 					<li class="nav-item">
+						<a class="nav-link active" href="/extended_bib">
+							Automated Bibliography <span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					
+					
+
+					
+					<li class="nav-item">
 						<a class="nav-link" href="/vis/coauthorship">
-							Co-authorship maps
+							Co-authorship Maps
 						</a>
 					</li>
 
@@ -88,17 +90,7 @@
 					
 					<li class="nav-item">
 						<a class="nav-link" href="/vis/nautilus">
-							Nautilus Diagram — Citation Influence Visualization
-						</a>
-					</li>
-
-					
-					
-
-					
-					<li class="nav-item">
-						<a class="nav-link active" href="/extended_bib">
-							Automated Bibliography <span class="sr-only">(current)</span>
+							Nautilus Diagram
 						</a>
 					</li>
 
@@ -109,7 +101,20 @@
 
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2">Extended Bibliography</h1>
+			<h1 class="h2">Automated Bibliography</h1>
+		</div>
+
+			
+
+	
+	
+	
+		
+			
+			
+		
+	
+
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary dropdown-toggle mr-md-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Download Data
@@ -123,10 +128,8 @@
 				</div>
 				
 			</div>
-
-		</div>
 		<p>
-			<p>Using the seed papers as input, we trained a custom recommender to identify 1000 similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Automated Bibliography Page. Additional details about the data and methods are provided below. You can download the data directly using the button at the upper right portion of this page.</p>
+			<p>Using the seed papers as input, we trained a custom recommender to identify 1000 similar papers that may be important in the fields of science communication and misinformation. The top papers ranked by relevance are included here in the Automated Bibliography Page. Additional details about the data and methods are provided below. You can download the data directly using the button above.</p>
 		</p>
 		<table id="extendedBibTable"></table>
 
@@ -136,24 +139,26 @@
 		</div>
 
 
-		</main>
-	</div>
-</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/app.bundle.js"></script>
+
+
 		
-		<div class="container mb-5">
 			<br>
+			<hr>
 			<h3>Contact Information</h3>
 			<p>
 				This online, interactive report was created by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the National Academy of Sciences. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools or other content.
 			</p>
 		
-		</div>
 
 		
+		</main>
+	</div>
+</div>
+		
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/app.bundle.js"></script>
 		
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@4.6.3/papaparse.min.js" integrity="sha256-1KCNEBmmUm8Oo4IOlg7ZnbFjBZXxCa9bILP7eGDqYOY=" crossorigin="anonymous"></script>
@@ -161,8 +166,8 @@
 <script type="text/javascript" charset="utf-8">
 	var data_fname = "/static/data/predictions_sciencecomm_and_misinfo_20190308.tsv"
 var columnsToShow = [
-	// 'rank',
-	'Paper_ID',
+	'rank',
+	// 'Paper_ID',
 	// 'issn',
 	// 'isbn',
 	// 'doi',

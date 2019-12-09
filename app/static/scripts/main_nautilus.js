@@ -85,7 +85,8 @@ function main(graph) {
 	}
 	console.log(ctrtype);
 	// citationVis.lineCharts[2].addTitle("Sum of eigenfactor for this author's publications by year");
-	citationVis.lineCharts[2].addTitle("Sum of eigenfactor for this " + ctrtype + "'s publications by year");
+	// citationVis.lineCharts[2].addTitle("Sum of eigenfactor for this " + ctrtype + "'s publications by year");
+	citationVis.lineCharts[2].addTitle("Sum of eigenfactor for the core set of papers (center node) by year");
 
 
 	$( document ).on( "yearChange", function() {

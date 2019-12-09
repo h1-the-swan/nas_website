@@ -4,7 +4,6 @@
 {% endblock custom_head_tags %}
 
 {% block main_content %}
-<h1>Data, Methods and Analysis</h1>
 
 <p>
 	Science Communication and the emerging research around misinformation are highly interdisciplinary. The research pulls from psychology, communication, risk assessment, computer science, sociology, and many other disciplines. The goal of our analysis was to map this research in these various disciplines and to see how these disciplines were connected. Because of this multi-disciplinary requirement, we could not pull from one key author or journal. We needed to start with a seed set that had been verified by experts and that included these various disciplines. With this seed set, we could then create maps of the emerging field and apply automated methods for finding related papers through citation links and word similarity. 
@@ -33,7 +32,9 @@
 </p>
 
 <p>
-	Click here [provide link] to download the list of publications in these seed collections.
+	<a href="{{ url_for('static', filename='data/seed_papers-science_communication_and_misinformation.zip') }}">
+		Click here to download the list of publications in these seed collections.
+	</a>
 </p>
 
 

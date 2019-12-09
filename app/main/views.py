@@ -88,4 +88,5 @@ def nautilus_demo():
 @main.route('/comm/')
 def coauthorship_scicomm():
     fname = url_for('static', filename="data/coauthorship/science_communication_papers_plus_extended_relevant_coauthor.json")
-    return render_template('main/coauthorship_scicomm.html', data_fname=fname)
+    projects = get_projects(current_app)
+    return render_template('main/coauthorship_scicomm.html', projects=projects, this_project={'name': 'Coauthorship: Science Communication Extended'}, data_fname=fname)

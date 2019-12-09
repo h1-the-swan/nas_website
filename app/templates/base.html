@@ -58,7 +58,7 @@
 
 		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-			<h1 class="h2">{% block title %}{% endblock %}</h1>
+			<h1 class="h2">{% block title %}{{ this_project['name'] }}{% endblock %}</h1>
 		</div>
 
 		{% block main_content %}
@@ -66,24 +66,23 @@
 		{% endblock main_content %}
 
 
-		</main>
-	</div>
-</div>
-		{% endblock %}
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='app.bundle.js') }}"></script>
 		{% block footer %}
-		<div class="container mb-5">
 			<br>
+			<hr>
 			<h3>Contact Information</h3>
 			<p>
 				This online, interactive report was created by <a href="https://jevinwest.org/" target="_blank">Jevin West</a>, <a href="http://www.jasport.org/" target="_blank">Jason Portenoy</a>, and the National Academy of Sciences. Please <a href="mailto:jevinw+misinformationresearch@uw.edu?subject=[misinformationresearch.org]">contact us</a> if you have any questions or comments about the tools or other content.
 			</p>
 		{% block footer_endcontent %}{% endblock %}
-		</div>
 
 		{% endblock footer %}
+		</main>
+	</div>
+</div>
+		{% endblock content %}
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='app.bundle.js') }}"></script>
 		{% block endbody_tags %}
 		{% endblock endbody_tags %}
 	</body>
